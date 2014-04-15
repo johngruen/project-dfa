@@ -1,0 +1,24 @@
+{
+  "name": "project-dfa",
+  "version": "0.0.0",
+  "authors": [
+    "johngruen <john.gruen@gmail.com>"
+  ],
+  "description": "general assets",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.0",
+    "modernizr": "~2.7.2"
+  }
+}

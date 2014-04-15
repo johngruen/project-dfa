@@ -1,0 +1,27 @@
+html {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	color: #444;
+}
+
+#logo {
+	background: url(../images/dfa.png) no-repeat center 40%;
+	background-size: 400px 400px;
+	padding:440px 0 0 0;
+	text-align: center;
+}
+
+h1 {
+	font-size:23px;
+	margin: 40px 0 10px 0;
+	font-weight:100;
+}
+
+h3 {
+	font-size:24px;
+	margin: 0 0 10px 0;
+	font-weight:100;
+}

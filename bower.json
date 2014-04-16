@@ -19,6 +19,9 @@
   ],
   "dependencies": {
     "jquery": "~2.1.0",
-    "modernizr": "~2.7.2"
+    "modernizr": "~2.7.2",
+    "toc": "~0.2.0",
+    "jquery-scrollspy": "*",
+    "codemirror": "~4.0.3"
   }
 }

@@ -1,0 +1,1 @@
+$(document).ready(function(){$("#main-navigation").toc({smoothScrolling:!0,prefix:"nav"})});

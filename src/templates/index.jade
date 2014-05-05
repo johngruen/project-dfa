@@ -1,0 +1,29 @@
+doctype
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title #{title}
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='#{css_path}')
+  body
+    
+    div#sidebar
+      header
+        div#logo
+      nav(id='main-navigation' class='toc')
+    
+    div#wrapper
+      include introduction
+      include form-elements
+      include navigation
+      include typography
+      include color
+      include glyphs
+      include chrome
+      
+    script(type='text/javascript', src='#{script_path}')
+    script(type='text/javascript', src='http://localhost:35729/livereload.js')
+
+

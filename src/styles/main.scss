@@ -1,0 +1,461 @@
+@import 'variables';
+
+body {
+    background: #FFF;
+    font-family: $default-font;
+}
+
+*, :after, :before {
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box
+}
+
+/*=====MINIMAL RESETS, ADJUSTMENTS, ETC =====*/
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: $default-header-font;
+    clear: both;
+}
+
+h1,h2,h3 {
+    margin: 0 0 1em 0;
+}
+
+h4,h5,h6 {
+    margin: 0 0 1.66em 0;
+}
+
+
+ul, ol {
+    padding: 0 0 0 1em;
+}
+
+ul, ol, p {
+    line-height: 24px;
+    margin: 0 0 1.4em 0;
+}
+
+#sidebar {
+    width:240px;
+    position:fixed;
+    height:100%;
+    background: #424F5A;
+}
+
+#sidebar header {
+    background-image: $chameleon-gradient;
+}
+
+#sidebar header #logo {
+    height:180px;
+    background: url(../images/dfa@2x.png) no-repeat center center;
+    background-size: 124px 124px;
+}
+
+
+.grid {
+    float:left;
+    width: 300px;
+}
+
+.example-group {
+    margin-bottom: 50px;
+}
+
+.example {
+    padding: 50px 20px 20px 20px;
+    border: 1px solid $text-light-grey;
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.in-content:after {
+    content: 'In Content Example';
+    position: absolute;
+    top:1em; 
+    color: $text-light-grey;
+    text-transform: uppercase;
+}
+
+.in-content-dark:after{
+    content: 'In Content';
+    position: absolute;
+    top:1em; 
+    color: $text-light-grey;
+    text-transform: uppercase; 
+}
+
+.example-pre {
+
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+    padding:20px;
+    background: $body-background-grey;
+}
+
+.example-pre pre {
+    margin:0;
+}
+
+
+
+/*=====NAVIGATION=====*/
+
+#main-navigation ul {
+    margin:0;
+    list-style:none;
+    padding:0;
+}
+
+#main-navigation a {
+    color: #CCCCCC;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 30px 20px;
+    display: block;
+    transition: background-color 250ms;
+}
+
+#main-navigation li.nav-active a {
+    color: #f2f2f2;
+    background: rgba(0,0,0,0.20);
+    -moz-box-shadow:    inset 4px 0px 0px 0px #FF9500;
+    box-shadow:         inset 4px 0px 0px 0px #FF9500;
+}
+
+/*=====Formatting Section=====*/
+
+#wrapper {
+    width:610px;
+    margin: 0 0 100px 280px;
+    padding: 40px 0 0 0;
+    font-family: $default-font;
+}
+
+section p {
+    line-height:24px;
+}
+
+section h2 {
+    font-size: 40px;
+    font-weight: lighter;
+}
+
+section h3 {
+    font-size: 24px;
+    margin: 0 0 1.6em 0;
+    font-weight: lighter;
+}
+
+section {
+margin-bottom: 50px;
+border-bottom: 1px dashed #C1C1C1;
+padding-bottom: 50px;
+}
+
+
+/*====BUTTON STYLES====*/
+
+#form {
+    .platform {
+        font-size:12px;
+        background: $body-background-grey;
+    }
+
+    .in-content {
+        font-size:14px;
+    }
+
+    #buttons {
+        .platform {
+            .button {
+                padding:6px;
+                width: 104px;
+                margin: 12px;    
+            }
+        }
+        .in-content {
+            .button {
+                padding: 8px;
+                width: 122px;
+                margin: 0 28px 0 0;    
+            }
+        }
+        .button {
+            border-radius: 2px;
+            &.primary {
+                border:1px solid $text-light-grey;
+                background: $light-grey;
+                &:hover {
+                    background: $hover-light-grey;
+                }
+                &:active {
+                    background: $active-light-grey;
+                }
+            }
+            &.emphasis {
+                color: $light-grey;
+                border:none;
+                background: $blue;
+                &:hover {
+                    background: $hover-blue;
+                }
+                &:active {
+                    background: $active-blue;
+                }
+            }
+            &.special {
+                color: $light-grey;
+                border:none;
+                background: $green;
+                &:hover {
+                    background: $hover-green;
+                }
+                &:active {
+                    background: $active-green;
+                }
+            }
+        }
+    }
+    #button-group {
+        .platform {
+            .button-group {
+                margin:12px;
+            }
+        }
+        .button-group {
+            button {
+                background: $light-grey;
+                border-top:1px solid $text-light-grey;
+                border-right:1px solid $text-light-grey;
+                border-bottom:1px solid $text-light-grey;
+                border-left: none;
+                width: 104px;
+                padding: 8px; 
+                &:hover {
+                    background: $hover-light-grey;
+                }
+                &:active {
+                    background: $active-light-grey;
+                }
+            }
+            :first-child {
+                border-radius:2px 0 0 2px;
+                border-left:1px solid $text-light-grey;
+            }
+            :last-child {
+                border-radius:0 2px 2px 0;
+            }
+        }
+    }
+
+}
+
+/*====Navigation*======*/
+
+#wrapper .nav-group {
+    ul {
+        list-style: none;
+        padding:0; 
+        margin:0;
+    }
+    a {
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 50ms;
+    }
+    &.horizontal {
+        li {
+            float:left;
+            height: 38px;
+        }
+        a {
+            padding:10px 20px;
+        }
+    }
+    &.vertical {
+        a {
+            display: block;
+            padding:10px 20px;
+            width:200px;
+        }
+    }
+    &.dark {
+        a {
+            background-color: $dark-grey;
+            color: $light-grey;
+        }   
+        a:hover {
+            background-color: $hover-dark-grey;
+        }
+        a:active{
+            background: $active-dark-grey;
+        }
+        &.vertical {
+            a.active {
+                background: $active-dark-grey;
+                box-shadow: inset 4px 0px 0px 0px #FF9500;
+            }
+        }
+        &.horizontal {
+            a.active {
+                background: $active-dark-grey;
+                box-shadow: inset 0px -4px 0px 0px #FF9500;
+            }
+        }      
+    }
+    &.light {
+        a {
+            background-color: $light-grey;
+            color: $dark-grey;
+        }   
+        a:hover {
+            background-color: $hover-light-grey;
+        }
+        a:active{
+            background: $active-light-grey;
+        }
+        &.vertical {
+            a.active {
+                background: $active-light-grey;
+                box-shadow: inset 4px 0px 0px 0px $highlight-orange;
+            }
+        }
+        &.horizontal {
+            a.active {
+                background: $active-light-grey;
+                box-shadow: inset 0px -4px 0px 0px $highlight-orange;
+            }
+        } 
+    }
+}
+
+/*====COLOR STYLES=====*/
+.swatch {
+    width:200px;
+    height:240px;
+    float:left;
+}
+
+.swatch div {
+    background: #ccc;
+    height:120px;
+    width:120px;
+    margin:0 auto 20px auto;
+    border-radius:80px;
+    font-size:10px;
+    position: relative;
+    text-align: center;
+}
+
+.swatch:nth-child(1) div {
+    background: $body-background-grey;
+    &:after {
+        content:"Body Background Grey";
+        position: absolute;
+        top:40px;
+        margin:0 auto;
+    }
+}
+
+.swatch:nth-child(2) div {
+    background: $light-grey;
+}
+
+.swatch:nth-child(3) div {
+    background: $med-grey;
+}
+
+.swatch:nth-child(4) div {
+    background: $dark-grey;
+}
+
+.swatch:nth-child(5) div {
+    background: $hover-dark-grey;
+}
+
+.swatch:nth-child(6) div {
+    background: $active-dark-grey;
+}
+
+.swatch:nth-child(7) div {
+    background: $hover-light-grey;
+}
+
+.swatch:nth-child(8) div {
+    background: $active-light-grey;
+}
+
+.swatch:nth-child(9) div {
+    background: $text-light-grey;
+}
+
+.swatch:nth-child(10) div {
+    background: $text-dark-grey;
+}
+
+.swatch:nth-child(11) div {
+    background: $green;
+}
+
+.swatch:nth-child(12) div {
+    background: $hover-green;
+}
+
+.swatch:nth-child(13) div {
+    background: $active-green;
+}
+
+.swatch:nth-child(14) div {
+    background: $blue;
+}
+
+.swatch:nth-child(15) div {
+    background: $hover-blue;
+}
+
+.swatch:nth-child(16) div {
+    background: $active-blue;
+}
+
+.swatch:nth-child(17) div {
+    background: $highlight-orange;
+}
+
+.swatch span {
+    display: block;
+    text-align: center;
+    font-size:12px;
+    font-weight: bold;
+}
+
+/*====PLACEHOLDER STYLES====*/
+
+
+.box {
+    height:400px;
+    background: url(../images/template@2x.png) #fff;
+    background-size: 650px 400px;
+
+}
+
+/*====STUPID CLEARFIX====*/
+
+.clear:before,
+.clear:after {
+    content: " ";
+    display: table;
+}
+
+.clear:after {
+    clear: both;
+}
+

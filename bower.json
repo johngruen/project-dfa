@@ -1,13 +1,11 @@
 {
-  "name": "project-dfa",
-  "version": "0.0.0",
+  "name": "grunt-DFA",
+  "version": "0.1.0",
   "authors": [
-    "johngruen <john.gruen@gmail.com>"
+    "jgruen@mozilla.com"
   ],
-  "description": "general assets",
-  "main": "index.html",
+  "description": "Draft style guide",
   "license": "MIT",
-  "homepage": "index.html",
   "private": true,
   "ignore": [
     "**/.*",
@@ -19,9 +17,7 @@
   ],
   "dependencies": {
     "jquery": "~2.1.0",
-    "modernizr": "~2.7.2",
-    "toc": "~0.2.0",
-    "jquery-scrollspy": "*",
-    "codemirror": "~4.0.3"
+    "normalize-css": "~3.0.1",
+    "toc": "~0.2.0"
   }
 }

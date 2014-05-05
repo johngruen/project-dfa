@@ -1,0 +1,5 @@
+{
+	"jquery":"src/bower_components/jquery/dist/jquery.min.js",
+	"toc":"src/bower_components/toc/dist/toc.min.js",
+	"normalize-css":"src/bower_components/normalize-css/normalize.css"
+}

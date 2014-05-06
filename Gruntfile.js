@@ -31,7 +31,7 @@ module.exports = function(grunt) {
     },
     cssmin: {
       combine: {
-          src: ['src/bower_components/normalize-css/normalize.css','src/styles/main.css'],
+          src: ['src/styles/fonts.css','src/bower_components/normalize-css/normalize.css','src/styles/main.css'],
           dest: 'dist/styles/<%= pkg.name %>.min.css'
       }
     },
@@ -53,6 +53,13 @@ module.exports = function(grunt) {
         expand: true,
         src: 'src/images/**',
         dest: 'dist/images/',
+        flatten: true,
+        filter: 'isFile'
+      },
+      dist_fonts: {
+        exapnd:true,
+        src: 'src/fonts/**',
+        dest: 'dist/fonts/',
         flatten: true,
         filter: 'isFile'
       }

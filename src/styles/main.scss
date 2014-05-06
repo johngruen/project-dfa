@@ -3,6 +3,7 @@
 body {
     background: #FFF;
     font-family: $default-font;
+    color: $text-dark-grey;
 }
 
 *, :after, :before {
@@ -15,6 +16,7 @@ body {
 
 h1,h2,h3,h4,h5,h6 {
     font-family: $default-header-font;
+    color: $dark-grey;
     clear: both;
 }
 
@@ -53,14 +55,25 @@ ul, ol, p {
     background-size: 124px 124px;
 }
 
+.grid-group {
+    clear:both;
+    margin: 0 0 50px 0;
+}
 
-.grid {
+.grid-left {
     float:left;
-    width: 300px;
+    width: 280px;
+    margin: 0 50px 0 0;
+}
+
+.grid-right {
+    float:left;
+    width: 280px;
 }
 
 .example-group {
     margin-bottom: 50px;
+    position: relative;
 }
 
 .example {
@@ -79,26 +92,69 @@ ul, ol, p {
 .in-content:after {
     content: 'In Content Example';
     position: absolute;
-    top:1em; 
+    top:20px;
+    left:20px;
+    font-size:12px;
     color: $text-light-grey;
     text-transform: uppercase;
 }
 
-.in-content-dark:after{
-    content: 'In Content';
+.platform:after {
+    content: 'Platform Example';
     position: absolute;
-    top:1em; 
+    top:20px;
+    left:20px;
+    font-size:12px;
     color: $text-light-grey;
-    text-transform: uppercase; 
+    text-transform: uppercase;
 }
 
-.example-pre {
+.platform:after {
+    content: 'Platform Example';
+    position: absolute;
+    top:20px;
+    left:20px;
+    font-size:12px;
+    color: $text-light-grey;
+    text-transform: uppercase;
+}
 
+.both {
+        background: $light-grey;
+}
+
+.both:after {
+    content: 'Platform & In Content Example';
+    position: absolute;
+    top:20px;
+    left:20px;
+    font-size:12px;
+    color: $text-light-grey;
+    text-transform: uppercase;
+}
+
+.platform {
+    background: $body-background-grey;
+}
+
+
+.example-pre {
+    position: relative;
     border-left: 1px solid #CCC;
     border-right: 1px solid #CCC;
     border-bottom: 1px solid #CCC;
-    padding:20px;
-    background: $body-background-grey;
+
+    padding:50px 20px 20px 20px;
+    background: $light-grey;
+}
+
+.example-pre:after {
+    content: 'Code';
+    position: absolute;
+    top:1em; 
+        font-size:12px;
+    color: $text-light-grey;
+    text-transform: uppercase; 
 }
 
 .example-pre pre {
@@ -121,7 +177,10 @@ ul, ol, p {
     font-size: 16px;
     padding: 30px 20px;
     display: block;
-    transition: background-color 250ms;
+    transition: background-color 100ms;
+    &:hover {
+        background-color: $hover-dark-grey;
+    }
 }
 
 #main-navigation li.nav-active a {
@@ -167,70 +226,75 @@ padding-bottom: 50px;
 #form {
     .platform {
         font-size:12px;
-        background: $body-background-grey;
     }
 
     .in-content {
         font-size:14px;
     }
 
-    #buttons {
-        .platform {
-            .button {
-                padding:6px;
-                width: 104px;
-                margin: 12px;    
-            }
-        }
-        .in-content {
-            .button {
-                padding: 8px;
-                width: 122px;
-                margin: 0 28px 0 0;    
-            }
-        }
+    .platform {
         .button {
-            border-radius: 2px;
-            &.primary {
-                border:1px solid $text-light-grey;
-                background: $light-grey;
-                &:hover {
-                    background: $hover-light-grey;
-                }
-                &:active {
-                    background: $active-light-grey;
-                }
+            padding:6px;
+            margin: 0 24px 0 0;    
+            width:90px;
+        }
+        input[type=text]{
+            width:50%;
+        }
+    }
+    .in-content {
+        .button {
+            padding: 8px;
+            margin: 0 28px 0 0;  
+            width:105px;  
+        }
+        input[type=text]{
+            width:60%;
+        }
+    }
+    .button {
+        border-radius: 2px;
+        &.primary {
+            border:1px solid $text-light-grey;
+            background-color: $light-grey;
+            &:hover {
+                background-color: $hover-light-grey;
             }
-            &.emphasis {
-                color: $light-grey;
-                border:none;
-                background: $blue;
-                &:hover {
-                    background: $hover-blue;
-                }
-                &:active {
-                    background: $active-blue;
-                }
+            &:active {
+                background-color: $active-light-grey;
             }
-            &.special {
-                color: $light-grey;
-                border:none;
-                background: $green;
-                &:hover {
-                    background: $hover-green;
-                }
-                &:active {
-                    background: $active-green;
-                }
+        }
+        &.emphasis {
+            color: $light-grey;
+            border:none;
+            background: $blue;
+            &:hover {
+                background: $hover-blue;
             }
+            &:active {
+                background: $active-blue;
+            }
+        }
+        &.special {
+            color: $light-grey;
+            border:none;
+            background: $green;
+            &:hover {
+                background: $hover-green;
+            }
+            &:active {
+                background: $active-green;
+            }
+        }
+        &.input-button {
+            border-left:none;
+            padding:5px 10px;
+            line-height: 1.4em;
+            border-radius: 0 2px 2px 0;
         }
     }
     #button-group {
-        .platform {
-            .button-group {
-                margin:12px;
-            }
-        }
+
         .button-group {
             button {
                 background: $light-grey;
@@ -255,6 +319,59 @@ padding-bottom: 50px;
                 border-radius:0 2px 2px 0;
             }
         }
+    }
+
+    .icon-button {
+        margin:32px;
+        width:40px;
+        height:40px;
+        &.primary {
+            border:none;
+        }
+        &:hover {
+            border:1px solid $text-light-grey;
+        }
+        &:active {
+            border:1px solid $text-light-grey;
+        }   
+        span {
+            visibility: hidden;
+        }
+        &.sync {
+            background-image: url(../images/sync@2x.png);
+            background-size:30px 30px;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+    }
+
+    input[type='text'] {
+        border-radius:2px;
+        border: 1px solid $text-light-grey;
+        padding:5px 10px;
+        line-height:1.4em;
+        &:active,&:focus {
+            border-color: $blue;
+        }
+    }
+
+    input.button-input {
+        border-radius: 2px 0 0 2px;
+    }
+
+    input.error {
+        border:1px solid $error-red;
+    }
+
+    .form-label {
+        display: block;
+        margin-bottom:.5em;
+    }
+
+    .error-label {
+        display: block;
+        margin-top: .5em;
+        color: $error-red;
     }
 
 }
@@ -343,99 +460,217 @@ padding-bottom: 50px;
     width:200px;
     height:240px;
     float:left;
-}
-
-.swatch div {
-    background: #ccc;
-    height:120px;
-    width:120px;
-    margin:0 auto 20px auto;
-    border-radius:80px;
-    font-size:10px;
-    position: relative;
-    text-align: center;
-}
-
-.swatch:nth-child(1) div {
-    background: $body-background-grey;
-    &:after {
-        content:"Body Background Grey";
-        position: absolute;
-        top:40px;
-        margin:0 auto;
+    h4 {
+        text-align: center;
+        margin: 0;
+    }
+    span {
+        display: block;
+        text-align: center;
+        font-size:12px;
+        font-weight: bold;
+    }
+    div {
+        height:120px;
+        width:120px;
+        margin:0 auto 10px auto;
+        border-radius:80px;
+        font-size:10px;
+        position: relative;
+        text-align: center;
+        transition: background-color 250ms;
+    }
+    &:nth-child(1) div {
+        background-color: $light-grey;
+        cursor: pointer;
+        &:hover {
+            background-color: $hover-light-grey;
+        }
+        &:active {
+            background-color: $active-light-grey;
+        }
+    }
+    &:nth-child(2) div {
+        background-color: $body-background-grey;
+    }
+    &:nth-child(3) div {
+        background-color: $dark-grey;
+        cursor: pointer;
+        &:hover {
+            background-color: $hover-dark-grey;
+        }
+        &:active {
+            background-color: $active-dark-grey;
+        }
+    }
+    &:nth-child(4) div {
+        background-color: $text-light-grey;
+    }
+    &:nth-child(5) div {
+        background-color: $text-dark-grey;
+    }
+    &:nth-child(6) div {
+        background-color: $blue;
+        cursor: pointer;
+        &:hover {
+            background-color: $hover-blue;
+        }
+        &:active {
+            background-color: $active-blue;
+        }
+    }
+    &:nth-child(7) div {
+        background-color: $green;
+        cursor: pointer;
+        &:hover {
+            background-color: $hover-green;
+        }
+        &:active {
+            background-color: $active-green;
+        }
+    }
+    &:nth-child(8) div {
+        background-color: $highlight-orange;
+    }
+    &:nth-child(9) div {
+        background-color: $error-red;
     }
 }
 
-.swatch:nth-child(2) div {
-    background: $light-grey;
+/*=====Typography=====*/
+.mega-text {
+    font-size: 100px;
+    line-height: 1em;
 }
 
-.swatch:nth-child(3) div {
-    background: $med-grey;
+div.windows {
+    font-family: 'segoe_uiregular' !important;
+    h1,h2 {
+      font-family: 'segoe_uiregular' !important;  
+    }
+    h3 {
+        font-family: 'segoe_uibold' !important;
+    }
 }
 
-.swatch:nth-child(4) div {
-    background: $dark-grey;
+div.mac {
+    font-family: 'lucida grande';
+    h1,h2 {
+      font-family: 'lucida grande' !important;  
+    }
+    h3 {
+        font-family: 'lucida grande' !important;
+        font-weight: bold;
+    }
+    p {
+        font-size: 13px;
+    }
+
 }
 
-.swatch:nth-child(5) div {
-    background: $hover-dark-grey;
+div.charis {
+    font-family: 'charis_silregular';
+    h1,h2 {
+      font-family: 'charis_silregular' !important;  
+    }
+    h3 {
+        font-family: 'charis_silregular' !important;
+        font-weight: bold;
+    }
+    p {
+        font-size: 13px;
+    }
+
 }
 
-.swatch:nth-child(6) div {
-    background: $active-dark-grey;
+div.clear-sans {
+    font-family: 'clear_sansregular';
+    h1,h2 {
+      font-family: 'clear_sansregular' !important;  
+    }
+    h3 {
+        font-family: 'clear_sansregular' !important;
+        font-weight: bold;
+    }
+    p {
+        font-size: 13px;
+    }
+
 }
 
-.swatch:nth-child(7) div {
-    background: $hover-light-grey;
+div.fira {
+    font-family: 'fira_sanslight';
+    h1,h2 {
+      font-family: 'fira_sanslight' !important;  
+    }
+    h3 {
+        font-family: 'fira_sanslight' !important;
+        font-weight: bold;
+    }
+    p {
+        font-size: 13px;
+    }
+
 }
 
-.swatch:nth-child(8) div {
-    background: $active-light-grey;
+div.type-sample {
+    padding: 0 0 0 40px;
+    h1 {
+        font-size: 24px;
+        font-weight: normal;
+        position: relative;
+        &:after {
+            content:'<h1>';
+            position:absolute;
+            font-size: 12px;
+            font-family: sans-serif;
+            color: $text-light-grey;
+            left:-40px;
+            bottom:0;
+        }
+    }
+    h2 {
+        font-size:16px;
+        position: relative;
+        &:after {
+            content:'<h2>';
+            position:absolute;
+            font-size: 12px;
+            font-family: sans-serif;
+            color: $text-light-grey;
+            left:-40px;
+            bottom:0;
+        }
+    }
+    h3 {
+        font-size: 14px;
+        position: relative;
+        &:after {
+            content:'<h3>';
+            position:absolute;
+            font-size: 12px;
+            font-family: sans-serif;
+            color: $text-light-grey;
+            left:-40px;
+            bottom: 0;
+            font-weight: normal;
+        }
+    }
+    p {
+        font-size: 12px;
+        position: relative;
+        &:after {
+            content:'<p>';
+            position:absolute;
+            font-size: 12px;
+            font-family: sans-serif;
+            color: $text-light-grey;
+            left:-40px;
+            bottom:0;
+        }
+    }
 }
 
-.swatch:nth-child(9) div {
-    background: $text-light-grey;
-}
-
-.swatch:nth-child(10) div {
-    background: $text-dark-grey;
-}
-
-.swatch:nth-child(11) div {
-    background: $green;
-}
-
-.swatch:nth-child(12) div {
-    background: $hover-green;
-}
-
-.swatch:nth-child(13) div {
-    background: $active-green;
-}
-
-.swatch:nth-child(14) div {
-    background: $blue;
-}
-
-.swatch:nth-child(15) div {
-    background: $hover-blue;
-}
-
-.swatch:nth-child(16) div {
-    background: $active-blue;
-}
-
-.swatch:nth-child(17) div {
-    background: $highlight-orange;
-}
-
-.swatch span {
-    display: block;
-    text-align: center;
-    font-size:12px;
-    font-weight: bold;
-}
 
 /*====PLACEHOLDER STYLES====*/
 
@@ -443,7 +678,7 @@ padding-bottom: 50px;
 .box {
     height:400px;
     background: url(../images/template@2x.png) #fff;
-    background-size: 650px 400px;
+    background-size: 610px 400px;
 
 }
 

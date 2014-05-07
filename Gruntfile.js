@@ -38,7 +38,7 @@ module.exports = function(grunt) {
     jade: {
       options: {
         data: {
-          title: 'DEATH FROM ABOVE',
+          title: 'Chameleon',
           css_path: 'styles/<%= pkg.name %>.min.css',
           script_path: 'scripts/<%= pkg.name %>.min.js'
         }

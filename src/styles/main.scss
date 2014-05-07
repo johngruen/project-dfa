@@ -1,7 +1,7 @@
 @import 'variables';
 
 body {
-    background: #FFF;
+    background: #FFF url(../images/wip.png);
     font-family: $default-font;
     color: $text-dark-grey;
 }
@@ -189,6 +189,33 @@ ul, ol, p {
     -moz-box-shadow:    inset 4px 0px 0px 0px #FF9500;
     box-shadow:         inset 4px 0px 0px 0px #FF9500;
 }
+
+#main-footer {
+    background: url(../images/cham-wordmark@2x.png) 20px 38px no-repeat $footer-dark-grey;
+    background-size: 280px 104px;
+    width:100%;
+    position: relative;
+    z-index:999;
+    padding:40px 0;
+    p {
+        color: $text-light-grey;
+        margin: 0 0 0 350px;
+        line-height: 1.5em;
+    }
+}
+
+#sub-footer {
+    background: url(../images/moz-logo@2x.png) no-repeat 20px center $footer-black; 
+    background-size: 54px 14px;
+    height:14px;
+    padding:20px 0;
+    width:100%;
+    position: relative;
+    z-index:999;
+}
+
+
+
 
 /*=====Formatting Section=====*/
 
@@ -669,6 +696,12 @@ div.type-sample {
             bottom:0;
         }
     }
+}
+
+/*====CHROME======*/
+.chrome {
+    margin-bottom:20px;
+    display: block;
 }
 
 

@@ -1,5 +1,5 @@
 body {
-  background: #FFF;
+  background: white url(../images/wip.png);
   font-family: "Helvetica Neue", Helvetica, Sans-serif;
   color: #333333; }
 
@@ -152,6 +152,27 @@ ul, ol, p {
   background: rgba(0, 0, 0, 0.2);
   -moz-box-shadow: inset 4px 0px 0px 0px #FF9500;
   box-shadow: inset 4px 0px 0px 0px #FF9500; }
+
+#main-footer {
+  background: url(../images/cham-wordmark@2x.png) 20px 38px no-repeat #31383d;
+  background-size: 280px 104px;
+  width: 100%;
+  position: relative;
+  z-index: 999;
+  padding: 40px 0; }
+  #main-footer p {
+    color: #c1c1c1;
+    margin: 0 0 0 350px;
+    line-height: 1.5em; }
+
+#sub-footer {
+  background: url(../images/moz-logo@2x.png) no-repeat 20px center #1c1e20;
+  background-size: 54px 14px;
+  height: 14px;
+  padding: 20px 0;
+  width: 100%;
+  position: relative;
+  z-index: 999; }
 
 /*=====Formatting Section=====*/
 #wrapper {
@@ -483,6 +504,11 @@ div.type-sample {
       color: #c1c1c1;
       left: -40px;
       bottom: 0; }
+
+/*====CHROME======*/
+.chrome {
+  margin-bottom: 20px;
+  display: block; }
 
 /*====PLACEHOLDER STYLES====*/
 .box {

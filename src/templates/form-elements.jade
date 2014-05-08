@@ -1,19 +1,33 @@
+
 section#form
 	header
 		h2 Form Elements
+	nav.nav-group.horizontal.light.clear
+		ul
+			li
+				a.active Firefox Desktop
+			li 
+				a.disabled Firefox Android
+			li
+				a.disabled FirefoxOS
+			li
+				a.disabled Web Properties
+
+
+
 	h3 Buttons
 	div.example-group
-		div.example.platform
+		div.example.both
 			button.button.primary Primary
 			button.button.emphasis Emphasis
 			button.button.special Special
 		div.example-pre
-	div.example-group
-		div.example.in-content
-			button.button.primary Primary
-			button.button.emphasis Emphasis
-			button.button.special Special
-		div.example-pre
+	//- div.example-group
+	//- 	div.example.in-contents
+	//- 		button.button.primary Primary
+	//- 		button.button.emphasis Emphasis
+	//- 		button.button.special Special
+	//- 	div.example-pre
 
 
 	h3 Button Group
@@ -37,10 +51,41 @@ section#form
 			div.example-pre
 
 	h3 Combo Button
-		h4 Coming Soon
+	div.example-group.platform
+		div.example
+			label.combo
+				select
+					option one
+					option two
+					option three
+				button &gt;
+	div.example-group.in-content
+		div.example
+			label.combo
+				select
+					option one
+					option two
+					option three
+				button &gt;
+
 
 	h3 Dropdown Button
-		h4 Coming Soon
+	div.example-group.platform
+		div.example
+			label.select
+				select
+					option one
+					option two
+					option three
+	div.example-group.in-content
+		div.example
+			label.select
+				select
+					option one
+					option two
+					option three
+
+
 
 	h3 Icon Button
 	div.example-group
@@ -97,4 +142,26 @@ section#form
 			label.form-label Enter Your Info
 			input(type='text' placeholder).error
 			label.error-label Please try again!
+
+	h3 Radio &amp; Checkbox
+
+	div.example-group
+		div.example.platform.wip
+			form(action='')
+				div.radio
+					input(type='radio' id='r1' name='r1' value='r1')
+					label Button!
+				div.radio
+					input(type='radio' id='r2' name='r1' value='r2')
+					label Button!
+
+	div.example-group
+		div.example.platform.wip
+			form(action='')
+				div.checkbox
+					input(type='checkbox' id='r1' name='r1' value='r1')
+					label Button!
+				div.checkbox
+					input(type='checkbox' id='r2' name='r1' value='r2')
+					label Button!
 

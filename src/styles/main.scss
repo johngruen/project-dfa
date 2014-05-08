@@ -1,7 +1,7 @@
 @import 'variables';
 
 body {
-    background: #FFF url(../images/wip.png);
+    background: #fff /*url(../images/wip.png)*/;
     font-family: $default-font;
     color: $text-dark-grey;
 }
@@ -87,6 +87,7 @@ ul, ol, p {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    font-family: 'segoe_uiregular'
 }
 
 .in-content:after {
@@ -139,6 +140,7 @@ ul, ol, p {
 
 
 .example-pre {
+    display:none;
     position: relative;
     border-left: 1px solid #CCC;
     border-right: 1px solid #CCC;
@@ -178,7 +180,7 @@ ul, ol, p {
     padding: 30px 20px;
     display: block;
     transition: background-color 100ms;
-    &:hover {
+    &:hover, &:focus {
         background-color: $hover-dark-grey;
     }
 }
@@ -263,20 +265,98 @@ padding-bottom: 50px;
         .button {
             padding:6px;
             margin: 0 24px 0 0;    
-            width:90px;
+            width:104px;
         }
         input[type=text]{
             width:50%;
+        }
+        .select {
+            select {
+                padding:6px;
+                width:104px;
+            }
+            &:after {
+                top:2px;
+                right:10px; 
+                width: 8px;
+                height: 8px;
+            }
+            &:before {
+                top:0px;
+                right:2px; 
+            }
+        }
+        label.combo {
+            width:104px !important;
+            overflow:hidden !important;
+            background: none;
+        }
+        .combo {
+            select {
+                padding:6px 0;
+                width:104px;
+                overflow: hidden !important;
+            }
+            button{
+                height:31px;
+                width: 30px;
+                right:32px;
+                right:1px;
+                top: -7px;
+            }
         }
     }
     .in-content {
         .button {
             padding: 8px;
             margin: 0 28px 0 0;  
-            width:105px;  
+            width:120px;  
         }
         input[type=text]{
             width:60%;
+        }
+        .select {
+            select {
+                padding:8px;
+                width:120px;
+            }
+            &:after {
+                top:1px;
+                right:15px;
+                width: 10px;
+                height: 10px;
+            }
+            &:before {
+                top:0px;
+                right:10px;
+            }
+
+        }
+        label.combo {
+            width:120px !important;
+            overflow:hidden !important;
+            background: none;
+        }
+        .combo {
+            select {
+                padding:8px;
+                width:120px;
+                overflow: hidden;
+            }            
+            button{
+                height:37px;
+                width: 37px;
+                right:1px;
+                top: -9px;
+            }
+        }
+    }
+    .both {
+        .button {
+            font-size: 14px;
+            margin: 0 29px 0 0;
+            height:30px;
+            width:120px;
         }
     }
     .button {
@@ -284,7 +364,7 @@ padding-bottom: 50px;
         &.primary {
             border:1px solid $text-light-grey;
             background-color: $light-grey;
-            &:hover {
+            &:hover, &:focus {
                 background-color: $hover-light-grey;
             }
             &:active {
@@ -295,7 +375,7 @@ padding-bottom: 50px;
             color: $light-grey;
             border:none;
             background: $blue;
-            &:hover {
+            &:hover, &:focus {
                 background: $hover-blue;
             }
             &:active {
@@ -306,7 +386,7 @@ padding-bottom: 50px;
             color: $light-grey;
             border:none;
             background: $green;
-            &:hover {
+            &:hover, &:focus {
                 background: $hover-green;
             }
             &:active {
@@ -330,8 +410,8 @@ padding-bottom: 50px;
                 border-bottom:1px solid $text-light-grey;
                 border-left: none;
                 width: 104px;
-                padding: 8px; 
-                &:hover {
+                height:30px;
+                &:hover, &:focus {
                     background: $hover-light-grey;
                 }
                 &:active {
@@ -348,14 +428,151 @@ padding-bottom: 50px;
         }
     }
 
+    .select {
+        position:relative;
+        background: $light-grey;
+        &:after {
+            content:'';
+            background:$text-light-grey;
+            transform:rotate(45deg);
+            position:absolute;
+            pointer-events:none;
+            transition: background-color 50ms;
+        }
+        &:before {
+            content:'';
+            position:absolute;
+            pointer-events:none;
+            display:block;
+            height:6px;
+            width:20px;
+            z-index: 999;
+            background: $light-grey;
+            transition: background-color 50ms;
+        }
+        &:hover, &:focus {
+            &:before {
+                background: $hover-light-grey;
+            }
+            &:after {
+                background: $dark-grey;
+            }
+        }
+        &:active {
+            &:before {
+                background: $active-light-grey;
+            }
+            &:after {
+                background: $dark-grey;
+            }
+        }
+        select {
+            transition: background-color 50ms;
+            padding:3px;
+            margin: 0;
+            border:1px solid $text-light-grey;
+            border-radius: 2px;
+            outline:none !important;
+            display: inline-block;
+            -webkit-appearance:none;
+            -moz-appearance:none;
+            appearance:none;
+            cursor:pointer;
+            text-indent: 0.01px;
+            text-overflow: '';
+            color: $text-dark-grey;
+            color:rgba(51,51,51,0);
+            text-shadow: 0 0 0 $text-dark-grey;
+            &:hover, &:focus {
+                background: $hover-light-grey;
+            }
+             &:active {
+                background: $active-light-grey;
+            }
+        }
+        option {
+            border:none !important;
+            outline: none!important;
+            border-left:none;
+            background: $light-grey !important;
+        }
+    }
+
+    .combo {
+        position:relative;
+        background: $light-grey;
+        display: inline !important;
+        button {
+            background: $light-grey;
+            transition: background-color 50ms;
+            padding:3px;
+            margin: 0;
+            border-left:1px solid $text-light-grey;
+            border-radius: 0 2px 2px 0;
+            border-right:none;
+            border-top:none;
+            border-bottom:none;
+            outline:none !important;
+            display: inline-block;
+            -webkit-appearance:none;
+            -moz-appearance:none;
+            appearance:none;
+            cursor:pointer;
+            text-indent: 0.01px;
+            text-overflow: '';
+            position: absolute;
+            &:hover, &:focus {
+                background: $hover-light-grey;
+            }
+             &:active {
+                background: $active-light-grey;
+            }
+
+        }
+        select {
+            transition: background-color 50ms;
+            padding:3px;
+            margin: 0;
+            border:1px solid $text-light-grey;
+            border-radius: 2px;
+            line-height:14px;
+            outline:none !important;
+            display: inline-block;
+            -webkit-appearance:none;
+            -moz-appearance:none;
+            appearance:none;
+            cursor:pointer;
+            text-indent: 0.01px;
+            text-overflow: '';
+            color: $text-dark-grey;
+            color:rgba(51,51,51,0);
+            text-shadow: 0 0 0 $text-dark-grey;
+            &:hover, &:focus {
+                background: $hover-light-grey;
+            }
+             &:active {
+                background: $active-light-grey;
+            }
+
+        }
+        option {
+            border:none !important;
+            outline: none!important;
+            border-left:none;
+            background: $light-grey !important;
+        }
+
+    }
+
+
     .icon-button {
         margin:32px;
-        width:40px;
-        height:40px;
         &.primary {
             border:none;
+            width:40px;
+            height:40px !important;
         }
-        &:hover {
+        &:hover, &:focus {
             border:1px solid $text-light-grey;
         }
         &:active {
@@ -401,9 +618,133 @@ padding-bottom: 50px;
         color: $error-red;
     }
 
+    .radio, .checkbox {
+        position: relative;
+        display: block;
+        margin:0 0 1em 0;
+        input {
+        }
+        label {
+            margin: 0 0 0 35px;
+            &:before {
+                display: none;
+                position: absolute;
+                left:0px;
+                top:0;
+                display: block;
+                width:23px;
+                height:23px;
+                content:'';
+                border: 1px solid rgba(23,50,77,.40);
+                border-radius: 2px;
+                background-color: #FFF;
+            }
+        }
+    }
+
+    .radio,.checkbox {
+        input {
+            position: absolute;
+            z-index:9999;
+            width:44px;
+            height:44px;
+            top:-11px;
+            left:-11px;
+            opacity:0;
+            cursor:pointer;
+        }
+        label {
+            line-height: 1.8em;
+            transition: background-color 50ms;
+
+        }
+    }
+
+    .radio {
+        label {
+            &:before {
+                border-radius:50%;
+            }
+        }
+    }
+
+    .radio input:not(:checked) + label {
+        &:after {
+            content:'';
+            width:15px;
+            height:15px;
+            background: #FFF;
+            position: absolute;
+            z-index: 999;
+            top:4px;
+            left:4px;
+            border-radius:50%;
+        }
+    }
+    .radio input:checked + label {
+        &:after {
+            content:'';
+            width:11px;
+            height:11px;
+            background: $blue;
+            position: absolute;
+            z-index: 999;
+            top:6px;
+            left:6px;
+            border-radius:50%;
+        }
+        &:before {
+            border-color: $blue;
+        }
+    }
+    .radio input:hover + label {
+        &:before  {
+            border-color: $blue;
+        }
+    }
+    .checkbox input:not(:checked) + label {
+        &:after {
+            content:'';
+            width:15px;
+            height:15px;
+            background: #FFF;
+            position: absolute;
+            z-index: 999;
+            top:4px;
+            left:4px;
+        }
+    }
+    .checkbox input:checked + label {
+        &:after {
+            content:'';
+            width:18px;
+            height:40px;
+            background: url(../images/check.svg) no-repeat;
+            background-size: 55px auto;
+            position: absolute;
+            z-index: 999;
+            top:6px;
+            left:2px;
+        }
+        &:before {
+            border-color: $blue;
+        }
+    }
+    .checkbox input:hover + label {
+        &:before  {
+            border-color: $blue;
+        }
+    }
+    /* Radio Button specific styles */
 }
 
 /*====Navigation*======*/
+.disabled {
+    cursor: normal;
+    opacity: .5;
+    cursor: default !important;
+    pointer-events: none !important;
+}
 
 #wrapper .nav-group {
     ul {
@@ -420,9 +761,16 @@ padding-bottom: 50px;
         li {
             float:left;
             height: 38px;
+            margin:0 0 50px 0;
+            width:25%;
         }
         a {
-            padding:10px 20px;
+            padding:10px 0;
+            width:100%;
+            display:block;
+            text-align:center;
+            border-bottom: 1px solid $text-light-grey;
+            border-top: 1px solid $text-light-grey;
         }
     }
     &.vertical {
@@ -437,7 +785,7 @@ padding-bottom: 50px;
             background-color: $dark-grey;
             color: $light-grey;
         }   
-        a:hover {
+        a:hover,a:focus {
             background-color: $hover-dark-grey;
         }
         a:active{
@@ -461,7 +809,7 @@ padding-bottom: 50px;
             background-color: $light-grey;
             color: $dark-grey;
         }   
-        a:hover {
+        a:hover, a:focus {
             background-color: $hover-light-grey;
         }
         a:active{
@@ -469,13 +817,13 @@ padding-bottom: 50px;
         }
         &.vertical {
             a.active {
-                background: $active-light-grey;
+                background: $hover-light-grey;
                 box-shadow: inset 4px 0px 0px 0px $highlight-orange;
             }
         }
         &.horizontal {
             a.active {
-                background: $active-light-grey;
+                background: $hover-light-grey;
                 box-shadow: inset 0px -4px 0px 0px $highlight-orange;
             }
         } 
@@ -510,7 +858,7 @@ padding-bottom: 50px;
     &:nth-child(1) div {
         background-color: $light-grey;
         cursor: pointer;
-        &:hover {
+        &:hover, &:focus {
             background-color: $hover-light-grey;
         }
         &:active {
@@ -523,7 +871,7 @@ padding-bottom: 50px;
     &:nth-child(3) div {
         background-color: $dark-grey;
         cursor: pointer;
-        &:hover {
+        &:hover, &:focus {
             background-color: $hover-dark-grey;
         }
         &:active {
@@ -539,7 +887,7 @@ padding-bottom: 50px;
     &:nth-child(6) div {
         background-color: $blue;
         cursor: pointer;
-        &:hover {
+        &:hover, &:focus {
             background-color: $hover-blue;
         }
         &:active {
@@ -549,7 +897,7 @@ padding-bottom: 50px;
     &:nth-child(7) div {
         background-color: $green;
         cursor: pointer;
-        &:hover {
+        &:hover, &:focus {
             background-color: $hover-green;
         }
         &:active {
@@ -725,5 +1073,13 @@ div.type-sample {
 
 .clear:after {
     clear: both;
+}
+
+.wip {
+    background-image: url(../images/wip.png);
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    select {padding-right:18px}
 }
 

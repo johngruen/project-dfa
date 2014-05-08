@@ -20,7 +20,7 @@ $(document).ready(function(){
 		'selectors': 'header>h2'
 	});
 
-	$('nav.vertical a,nav.horizontal a').click(function(){
+	$('nav.vertical a,nav.horizontal a').not('.disabled').click(function(){
 		$(this).closest('li').siblings().find('a').removeClass('active');
 		$(this).addClass('active');
 	});

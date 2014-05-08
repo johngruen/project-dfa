@@ -2,13 +2,13 @@
 
 body {
     background: #fff /*url(../images/wip.png)*/;
-    font-family: $default-font;
     color: $text-dark-grey;
+    font-family: 'clear_sansregular';
 }
 
 *, :after, :before {
-    -webkit-box-sizing:border-box;
     -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
     box-sizing:border-box
 }
 
@@ -28,6 +28,13 @@ h4,h5,h6 {
     margin: 0 0 1.66em 0;
 }
 
+h1, h2 {
+    font-family: 'fira_sanslight';
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'clear_sansregular';
+}
 
 ul, ol {
     padding: 0 0 0 1em;
@@ -38,21 +45,53 @@ ul, ol, p {
     margin: 0 0 1.4em 0;
 }
 
+#about-mozilla {
+    background-image: url('../images/moz-logo-light@2x.png');
+    background-size: 69px 19px;
+    cursor: pointer;
+    height: 19px;
+    opacity: 0.5;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    transition: opacity 150ms ease 0s;
+    width: 69px;
+    &:hover {
+        opacity: 1;
+    }
+}
+
 #sidebar {
-    width:240px;
-    position:fixed;
-    height:100%;
     background: #424F5A;
+    height:100%;
+    position:fixed;
+    width:180px;
+    z-index: 999;
 }
 
 #sidebar header {
     background-image: $chameleon-gradient;
 }
 
+#sidebar aside {
+    border-radius: 10px;
+    border:1px dashed $hover-dark-grey;
+    color: $text-light-grey;
+    font-size: 12px;
+    line-height: 1.8em;
+    margin:20px;
+    padding: 10px;
+    text-align: center;
+    a {
+        color: $blue;
+    }
+}
+
 #sidebar header #logo {
-    height:180px;
-    background: url(../images/dfa@2x.png) no-repeat center center;
     background-size: 124px 124px;
+    background: url(../images/dfa@2x.png) no-repeat center center;
+    display: none;
+    height:150px;
 }
 
 .grid-group {
@@ -62,8 +101,8 @@ ul, ol, p {
 
 .grid-left {
     float:left;
-    width: 280px;
     margin: 0 50px 0 0;
+    width: 280px;
 }
 
 .grid-right {
@@ -77,176 +116,210 @@ ul, ol, p {
 }
 
 .example {
-    padding: 50px 20px 20px 20px;
-    border: 1px solid $text-light-grey;
-    border-radius: 2px 2px 0 0;
-    position: relative;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    border-radius: 2px 2px 0 0;
+    border: 1px solid $text-light-grey;
+    font-family: 'segoe_uiregular';
+    padding: 50px 20px 20px 20px;
+    position: relative;
     user-select: none;
-    font-family: 'segoe_uiregular'
 }
 
 .in-content:after {
+    color: $text-light-grey;
     content: 'In Content Example';
-    position: absolute;
-    top:20px;
-    left:20px;
     font-size:12px;
-    color: $text-light-grey;
+    left:20px;
+    position: absolute;
     text-transform: uppercase;
+    top:20px;
 }
 
 .platform:after {
-    content: 'Platform Example';
-    position: absolute;
-    top:20px;
-    left:20px;
-    font-size:12px;
     color: $text-light-grey;
+    content: 'Platform Example';
+    font-size:12px;
+    left:20px;
+    position: absolute;
     text-transform: uppercase;
+    top:20px;
 }
 
 .platform:after {
-    content: 'Platform Example';
-    position: absolute;
-    top:20px;
-    left:20px;
-    font-size:12px;
     color: $text-light-grey;
+    content: 'Platform Example';
+    font-size:12px;
+    left:20px;
+    position: absolute;
     text-transform: uppercase;
+    top:20px;
 }
 
 .both {
-        background: $light-grey;
+    background: $light-grey;
 }
 
 .both:after {
-    content: 'Platform & In Content Example';
-    position: absolute;
-    top:20px;
-    left:20px;
-    font-size:12px;
     color: $text-light-grey;
+    content: 'Platform & In Content Example';
+    font-size:12px;
+    left:20px;
+    position: absolute;
     text-transform: uppercase;
+    top:20px;
 }
 
 .platform {
     background: $body-background-grey;
 }
 
-
 .example-pre {
-    display:none;
-    position: relative;
+    background: $light-grey;
+    border-bottom: 1px solid #CCC;
     border-left: 1px solid #CCC;
     border-right: 1px solid #CCC;
-    border-bottom: 1px solid #CCC;
-
+    display:none;
     padding:50px 20px 20px 20px;
-    background: $light-grey;
+    position: relative;
 }
 
 .example-pre:after {
+    font-size:12px;
+    color: $text-light-grey;
     content: 'Code';
     position: absolute;
-    top:1em; 
-        font-size:12px;
-    color: $text-light-grey;
     text-transform: uppercase; 
+    top:1em; 
 }
 
 .example-pre pre {
     margin:0;
 }
 
-
-
 /*=====NAVIGATION=====*/
 
 #main-navigation ul {
-    margin:0;
     list-style:none;
+    margin:40px 0 0 0;
     padding:0;
 }
 
 #main-navigation a {
     color: #CCCCCC;
-    text-decoration: none;
-    font-size: 16px;
-    padding: 30px 20px;
     display: block;
-    transition: background-color 100ms;
+    font-size: 14px;
+    padding: 10px 5px 10px 42px;
+    position: relative;
+    text-decoration: none;
+    transform: border-radius 2500ms;
+    transition: background-color 150ms;
     &:hover, &:focus {
         background-color: $hover-dark-grey;
+    }
+    &:before {
+        background: $text-light-grey;
+        border-bottom:4px solid $text-light-grey;
+        border-radius: 3px;
+        border-top: 4px solid $light-grey;
+        content:'';
+        height:18px;
+        left:15px;
+        position: absolute;
+        top:14px;
+        transition:border-radius 400ms;
+        width:18px;
     }
 }
 
 #main-navigation li.nav-active a {
-    color: #f2f2f2;
     background: rgba(0,0,0,0.20);
-    -moz-box-shadow:    inset 4px 0px 0px 0px #FF9500;
-    box-shadow:         inset 4px 0px 0px 0px #FF9500;
+    border-left: 4px solid $highlight-orange;
+    color: #f2f2f2;
+    padding: 10px 5px 10px 38px;
+    &:before {
+        background: $body-background-grey;
+        border-radius: 50%;
+        content:'';
+        height:18px;
+        left:11px;
+        position: absolute;
+        top:14px;
+        width:18px;
+    }   
 }
 
 #main-footer {
-    background: url(../images/cham-wordmark@2x.png) 20px 38px no-repeat $footer-dark-grey;
     background-size: 280px 104px;
-    width:100%;
-    position: relative;
-    z-index:999;
+    background: url(../images/cham-wordmark@2x.png) 20px 38px no-repeat $footer-dark-grey;
     padding:40px 0;
+    position: relative;
+    width:100%;
+    z-index:999;
     p {
         color: $text-light-grey;
-        margin: 0 0 0 350px;
         line-height: 1.5em;
+        margin: 0 0 0 350px;
     }
 }
 
 #sub-footer {
-    background: url(../images/moz-logo@2x.png) no-repeat 20px center $footer-black; 
     background-size: 54px 14px;
+    background: url(../images/moz-logo@2x.png) no-repeat 20px center $footer-black; 
     height:14px;
     padding:20px 0;
-    width:100%;
     position: relative;
+    width:100%;
     z-index:999;
 }
-
-
-
 
 /*=====Formatting Section=====*/
 
 #wrapper {
+    margin: 0 0 100px 270px;
+    padding: 0 0 0 0;
     width:610px;
-    margin: 0 0 100px 280px;
-    padding: 40px 0 0 0;
-    font-family: $default-font;
 }
 
 section p {
     line-height:24px;
+    a {
+        color: $blue;
+    }
 }
 
 section h2 {
     font-size: 40px;
     font-weight: lighter;
+    margin: 0;
+    padding: 20px 0 40px 0;
+    position: relative;
+    &:before {
+        background: $dark-grey;
+        border-radius: 4px;
+        border-top:7px solid $active-dark-grey;
+        content:'';
+        height:30px;
+        left:-50px;
+        position: absolute;
+        top:31px;
+        width:30px;
+    }
 }
 
 section h3 {
     font-size: 24px;
-    margin: 0 0 1.6em 0;
     font-weight: lighter;
+    margin: 0 0 1.6em 0;
 }
 
 section {
-margin-bottom: 50px;
-border-bottom: 1px dashed #C1C1C1;
-padding-bottom: 50px;
+    border-bottom: 1px dashed #C1C1C1;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
 }
 
 
@@ -263,8 +336,8 @@ padding-bottom: 50px;
 
     .platform {
         .button {
-            padding:6px;
             margin: 0 24px 0 0;    
+            padding:6px;
             width:104px;
         }
         input[type=text]{
@@ -359,383 +432,402 @@ padding-bottom: 50px;
             width:120px;
         }
     }
-    .button {
-        border-radius: 2px;
-        &.primary {
-            border:1px solid $text-light-grey;
-            background-color: $light-grey;
-            &:hover, &:focus {
-                background-color: $hover-light-grey;
-            }
-            &:active {
-                background-color: $active-light-grey;
-            }
-        }
-        &.emphasis {
-            color: $light-grey;
-            border:none;
-            background: $blue;
-            &:hover, &:focus {
-                background: $hover-blue;
-            }
-            &:active {
-                background: $active-blue;
-            }
-        }
-        &.special {
-            color: $light-grey;
-            border:none;
-            background: $green;
-            &:hover, &:focus {
-                background: $hover-green;
-            }
-            &:active {
-                background: $active-green;
-            }
-        }
-        &.input-button {
-            border-left:none;
-            padding:5px 10px;
-            line-height: 1.4em;
-            border-radius: 0 2px 2px 0;
-        }
-    }
-    #button-group {
+}
 
-        .button-group {
-            button {
-                background: $light-grey;
-                border-top:1px solid $text-light-grey;
-                border-right:1px solid $text-light-grey;
-                border-bottom:1px solid $text-light-grey;
-                border-left: none;
-                width: 104px;
-                height:30px;
-                &:hover, &:focus {
-                    background: $hover-light-grey;
-                }
-                &:active {
-                    background: $active-light-grey;
-                }
-            }
-            :first-child {
-                border-radius:2px 0 0 2px;
-                border-left:1px solid $text-light-grey;
-            }
-            :last-child {
-                border-radius:0 2px 2px 0;
-            }
-        }
-    }
-
-    .select {
-        position:relative;
-        background: $light-grey;
-        &:after {
-            content:'';
-            background:$text-light-grey;
-            transform:rotate(45deg);
-            position:absolute;
-            pointer-events:none;
-            transition: background-color 50ms;
-        }
-        &:before {
-            content:'';
-            position:absolute;
-            pointer-events:none;
-            display:block;
-            height:6px;
-            width:20px;
-            z-index: 999;
-            background: $light-grey;
-            transition: background-color 50ms;
-        }
+.button {
+    border-radius: 2px;
+    &.primary {
+        border:1px solid $text-light-grey;
+        background-color: $light-grey;
         &:hover, &:focus {
-            &:before {
-                background: $hover-light-grey;
-            }
-            &:after {
-                background: $dark-grey;
-            }
+            background-color: $hover-light-grey;
         }
         &:active {
-            &:before {
-                background: $active-light-grey;
-            }
-            &:after {
-                background: $dark-grey;
-            }
-        }
-        select {
-            transition: background-color 50ms;
-            padding:3px;
-            margin: 0;
-            border:1px solid $text-light-grey;
-            border-radius: 2px;
-            outline:none !important;
-            display: inline-block;
-            -webkit-appearance:none;
-            -moz-appearance:none;
-            appearance:none;
-            cursor:pointer;
-            text-indent: 0.01px;
-            text-overflow: '';
-            color: $text-dark-grey;
-            color:rgba(51,51,51,0);
-            text-shadow: 0 0 0 $text-dark-grey;
-            &:hover, &:focus {
-                background: $hover-light-grey;
-            }
-             &:active {
-                background: $active-light-grey;
-            }
-        }
-        option {
-            border:none !important;
-            outline: none!important;
-            border-left:none;
-            background: $light-grey !important;
+            background-color: $active-light-grey;
         }
     }
+    &.emphasis {
+        color: $light-grey;
+        border:none;
+        background: $blue;
+        &:hover, &:focus {
+            background: $hover-blue;
+        }
+        &:active {
+            background: $active-blue;
+        }
+    }
+    &.special {
+        color: $light-grey;
+        border:none;
+        background: $green;
+        &:hover, &:focus {
+            background: $hover-green;
+        }
+        &:active {
+            background: $active-green;
+        }
+    }
+    &.input-button {
+        border-left:none;
+        padding:5px 10px;
+        line-height: 1.4em;
+        border-radius: 0 2px 2px 0;
+    }
+}
 
-    .combo {
-        position:relative;
-        background: $light-grey;
-        display: inline !important;
+#button-group {
+    .button-group {
         button {
             background: $light-grey;
-            transition: background-color 50ms;
-            padding:3px;
-            margin: 0;
+            border-top:1px solid $text-light-grey;
+            border-right:1px solid $text-light-grey;
+            border-bottom:1px solid $text-light-grey;
+            border-left: none;
+            width: 104px;
+            height:30px;
+            &:hover, &:focus {
+                background: $hover-light-grey;
+            }
+            &:active {
+                background: $active-light-grey;
+            }
+        }
+        :first-child {
+            border-radius:2px 0 0 2px;
             border-left:1px solid $text-light-grey;
-            border-radius: 0 2px 2px 0;
-            border-right:none;
-            border-top:none;
-            border-bottom:none;
-            outline:none !important;
-            display: inline-block;
-            -webkit-appearance:none;
-            -moz-appearance:none;
-            appearance:none;
-            cursor:pointer;
-            text-indent: 0.01px;
-            text-overflow: '';
-            position: absolute;
-            &:hover, &:focus {
-                background: $hover-light-grey;
-            }
-             &:active {
-                background: $active-light-grey;
-            }
-
         }
-        select {
-            transition: background-color 50ms;
-            padding:3px;
-            margin: 0;
-            border:1px solid $text-light-grey;
-            border-radius: 2px;
-            line-height:14px;
-            outline:none !important;
-            display: inline-block;
-            -webkit-appearance:none;
-            -moz-appearance:none;
-            appearance:none;
-            cursor:pointer;
-            text-indent: 0.01px;
-            text-overflow: '';
-            color: $text-dark-grey;
-            color:rgba(51,51,51,0);
-            text-shadow: 0 0 0 $text-dark-grey;
-            &:hover, &:focus {
-                background: $hover-light-grey;
-            }
-             &:active {
-                background: $active-light-grey;
-            }
-
+        :last-child {
+            border-radius:0 2px 2px 0;
         }
-        option {
-            border:none !important;
-            outline: none!important;
-            border-left:none;
-            background: $light-grey !important;
-        }
-
     }
+}
 
-
-    .icon-button {
-        margin:32px;
-        &.primary {
-            border:none;
-            width:40px;
-            height:40px !important;
+.select {
+    position:relative;
+    background: $light-grey;
+    &:after {
+        content:'';
+        background:$text-light-grey;
+        transform:rotate(45deg);
+        position:absolute;
+        pointer-events:none;
+        transition: background-color 50ms;
+    }
+    &:before {
+        content:'';
+        position:absolute;
+        pointer-events:none;
+        display:block;
+        height:6px;
+        width:20px;
+        z-index: 999;
+        background: $light-grey;
+        transition: background-color 50ms;
+    }
+    &:hover, &:focus {
+        &:before {
+            background: $hover-light-grey;
         }
+        &:after {
+            background: $dark-grey;
+        }
+    }
+    &:active {
+        &:before {
+            background: $active-light-grey;
+        }
+        &:after {
+            background: $dark-grey;
+        }
+    }
+    select {
+        transition: background-color 50ms;
+        padding:3px;
+        margin: 0;
+        border:1px solid $text-light-grey;
+        border-radius: 2px;
+        outline:none !important;
+        display: inline-block;
+        -webkit-appearance:none;
+        -moz-appearance:none;
+        appearance:none;
+        cursor:pointer;
+        text-indent: 0.01px;
+        text-overflow: '';
+        color: $text-dark-grey;
+        color:rgba(51,51,51,0);
+        text-shadow: 0 0 0 $text-dark-grey;
         &:hover, &:focus {
-            border:1px solid $text-light-grey;
+            background: $hover-light-grey;
         }
-        &:active {
-            border:1px solid $text-light-grey;
-        }   
-        span {
-            visibility: hidden;
-        }
-        &.sync {
-            background-image: url(../images/sync@2x.png);
-            background-size:30px 30px;
-            background-position: center center;
-            background-repeat: no-repeat;
+         &:active {
+            background: $active-light-grey;
         }
     }
+    option {
+        border:none !important;
+        outline: none!important;
+        border-left:none;
+        background: $light-grey !important;
+    }
+}
 
-    input[type='text'] {
-        border-radius:2px;
-        border: 1px solid $text-light-grey;
-        padding:5px 10px;
-        line-height:1.4em;
-        &:active,&:focus {
-            border-color: $blue;
+.combo {
+    position:relative;
+    background: $light-grey;
+    display: inline !important;
+    button {
+        background: $light-grey;
+        transition: background-color 50ms;
+        padding:3px;
+        margin: 0;
+        border-left:1px solid $text-light-grey;
+        border-radius: 0 2px 2px 0;
+        border-right:none;
+        border-top:none;
+        border-bottom:none;
+        outline:none !important;
+        display: inline-block;
+        -webkit-appearance:none;
+        -moz-appearance:none;
+        appearance:none;
+        cursor:pointer;
+        text-indent: 0.01px;
+        text-overflow: '';
+        position: absolute;
+        &:hover, &:focus {
+            background: $hover-light-grey;
+        }
+         &:active {
+            background: $active-light-grey;
         }
     }
-
-    input.button-input {
-        border-radius: 2px 0 0 2px;
-    }
-
-    input.error {
-        border:1px solid $error-red;
-    }
-
-    .form-label {
-        display: block;
-        margin-bottom:.5em;
-    }
-
-    .error-label {
-        display: block;
-        margin-top: .5em;
-        color: $error-red;
-    }
-
-    .radio, .checkbox {
-        position: relative;
-        display: block;
-        margin:0 0 1em 0;
-        input {
+    select {
+        transition: background-color 50ms;
+        padding:3px;
+        margin: 0;
+        border:1px solid $text-light-grey;
+        border-radius: 2px;
+        line-height:14px;
+        outline:none !important;
+        display: inline-block;
+        -webkit-appearance:none;
+        -moz-appearance:none;
+        appearance:none;
+        cursor:pointer;
+        text-indent: 0.01px;
+        text-overflow: '';
+        color: $text-dark-grey;
+        color:rgba(51,51,51,0);
+        text-shadow: 0 0 0 $text-dark-grey;
+        &:hover, &:focus {
+            background: $hover-light-grey;
         }
-        label {
-            margin: 0 0 0 35px;
-            &:before {
-                display: none;
-                position: absolute;
-                left:0px;
-                top:0;
-                display: block;
-                width:23px;
-                height:23px;
-                content:'';
-                border: 1px solid rgba(23,50,77,.40);
-                border-radius: 2px;
-                background-color: #FFF;
-            }
+         &:active {
+            background: $active-light-grey;
         }
+
+    }
+    option {
+        border:none !important;
+        outline: none!important;
+        border-left:none;
+        background: $light-grey !important;
     }
 
-    .radio,.checkbox {
-        input {
+}
+
+.icon-button {
+    margin:32px;
+    &.primary {
+        border:none;
+        width:40px;
+        height:40px !important;
+    }
+    &:hover, &:focus {
+        border:1px solid $text-light-grey;
+    }
+    &:active {
+        border:1px solid $text-light-grey;
+    }   
+    span {
+        visibility: hidden;
+    }
+    &.sync {
+        background-image: url(../images/sync@2x.png);
+        background-size:30px 30px;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+}
+
+input[type='text'] {
+    border-radius:2px;
+    border: 1px solid $text-light-grey;
+    padding:5px 10px;
+    line-height:1.4em;
+    &:active,&:focus {
+        border-color: $blue;
+    }
+}
+
+input.button-input {
+    border-radius: 2px 0 0 2px;
+}
+
+input.error {
+    border:1px solid $error-red;
+}
+
+.form-label {
+    display: block;
+    margin-bottom:.5em;
+}
+
+.error-label {
+    display: block;
+    margin-top: .5em;
+    color: $error-red;
+}
+
+.radio, .checkbox {
+    position: relative;
+    display: block;
+    margin:0 0 1em 0;
+    input {
+    }
+    label {
+        margin: 0 0 0 35px;
+        &:before {
+            display: none;
             position: absolute;
-            z-index:9999;
-            width:44px;
-            height:44px;
-            top:-11px;
-            left:-11px;
-            opacity:0;
-            cursor:pointer;
-        }
-        label {
-            line-height: 1.8em;
-            transition: background-color 50ms;
-
-        }
-    }
-
-    .radio {
-        label {
-            &:before {
-                border-radius:50%;
-            }
-        }
-    }
-
-    .radio input:not(:checked) + label {
-        &:after {
+            left:0px;
+            top:0;
+            display: block;
+            width:23px;
+            height:23px;
             content:'';
-            width:15px;
-            height:15px;
-            background: #FFF;
-            position: absolute;
-            z-index: 999;
-            top:4px;
-            left:4px;
+            border: 1px solid rgba(23,50,77,.40);
+            border-radius: 2px;
+            background-color: #FFF;
+        }
+    }
+}
+
+.radio,.checkbox {
+    input {
+        z-index:9999;
+        display: block;
+        height:44px;
+        width:100%;
+        top:-11px;
+        position: absolute;
+        left:-11px;
+        opacity:0;
+        cursor:pointer;
+    }
+    label {
+        line-height: 1.8em;
+        transition: background-color 50ms;
+    }
+}
+
+.radio {
+    label {
+        &:before {
             border-radius:50%;
         }
-    }
-    .radio input:checked + label {
         &:after {
-            content:'';
-            width:11px;
-            height:11px;
-            background: $blue;
-            position: absolute;
-            z-index: 999;
-            top:6px;
-            left:6px;
-            border-radius:50%;
-        }
-        &:before {
-            border-color: $blue;
+            transition: background-color 100ms,width 100ms,height 100ms,left 100ms,top 100ms;
         }
     }
-    .radio input:hover + label {
-        &:before  {
-            border-color: $blue;
-        }
+}
+
+.radio input:not(:checked) + label {
+    &:after {
+        content:'';
+        width:13px;
+        height:13px;
+        background: #FFF;
+        position: absolute;
+        z-index: 999;
+        top:5px;
+        left:5px;
+        border-radius:50%;
     }
-    .checkbox input:not(:checked) + label {
-        &:after {
-            content:'';
-            width:15px;
-            height:15px;
-            background: #FFF;
-            position: absolute;
-            z-index: 999;
-            top:4px;
-            left:4px;
-        }
+}
+.radio input:checked + label {
+    &:after {
+        content:'';
+        width:11px;
+        height:11px;
+        background: $blue;
+        position: absolute;
+        z-index: 999;
+        top:6px;
+        left:6px;
+        border-radius:50%;
     }
-    .checkbox input:checked + label {
-        &:after {
-            content:'';
-            width:18px;
-            height:40px;
-            background: url(../images/check.svg) no-repeat;
-            background-size: 55px auto;
-            position: absolute;
-            z-index: 999;
-            top:6px;
-            left:2px;
-        }
-        &:before {
-            border-color: $blue;
-        }
+    &:before {
+        border-color: $blue;
     }
-    .checkbox input:hover + label {
-        &:before  {
-            border-color: $blue;
-        }
+}
+.radio input:hover + label {
+    &:before  {
+        border-color: $blue;
     }
+}
+.checkbox input:not(:checked) + label {
+    &:after {
+        content:'';
+        width:15px;
+        height:15px;
+        background: #FFF;
+        position: absolute;
+        z-index: 999;
+        top:4px;
+        left:4px;
+    }
+}
+.checkbox input:checked + label {
+    &:after {
+        content:'';
+        width:18px;
+        height:40px;
+        background: url(../images/check.svg) no-repeat;
+        background-size: 55px auto;
+        position: absolute;
+        z-index: 999;
+        top:6px;
+        left:2px;
+    }
+    &:before {
+        border-color: $blue;
+    }
+}
+.checkbox input:hover + label {
+    &:before  {
+        border-color: $blue;
+    }
+}
     /* Radio Button specific styles */
+
+
+.radio input:active + label {
+    &:before {
+        border:1px solid $active-blue;
+        box-shadow: 0 0 4px $active-blue;
+    }
+    &:after {
+        background: $active-blue;
+    }
+}
+.checkbox input:active + label {
+    &:before {
+        border:1px solid $active-blue;
+        box-shadow: 0 0 4px $active-blue;
+    }
 }
 
 /*====Navigation*======*/
@@ -857,6 +949,7 @@ padding-bottom: 50px;
     }
     &:nth-child(1) div {
         background-color: $light-grey;
+        border: 1px solid $text-light-grey;
         cursor: pointer;
         &:hover, &:focus {
             background-color: $hover-light-grey;

@@ -10,32 +10,27 @@ body {
 
 /*=====MINIMAL RESETS, ADJUSTMENTS, ETC =====*/
 h1, h2, h3, h4, h5, h6 {
-  font-family: Helvetica, Sans-serif;
   color: #424f5a;
   clear: both; }
 
 h1, h2, h3 {
-  margin: 0 0 1em 0; }
+  margin-bottom: 1em; }
 
 h4, h5, h6 {
-  margin: 0 0 1.66em 0; }
+  margin-bottom: 1.66em; }
 
 h1, h2 {
   font-family: 'fira_sanslight'; }
 
-h1, h2, h3, h4, h5, h6 {
+h3, h4, h5, h6 {
   font-family: 'clear_sansregular'; }
 
 ul, ol {
-  padding: 0 0 0 1em; }
+  padding-left: 1em; }
 
 ul, ol, p {
   line-height: 24px;
   margin: 0 0 1.4em 0; }
-
-.toc-break {
-  visibility: hidden;
-  display: block; }
 
 #about-mozilla {
   background-image: url("../images/moz-logo-light@2x.png");
@@ -46,20 +41,17 @@ ul, ol, p {
   position: absolute;
   right: 12px;
   top: 12px;
-  transition: opacity 150ms ease 0s;
+  transition: opacity 150ms;
   width: 69px; }
   #about-mozilla:hover {
     opacity: 1; }
 
 #sidebar {
-  background: #424F5A;
+  background: #424f5a;
   height: 100%;
   position: fixed;
   width: 180px;
   z-index: 999; }
-
-#sidebar header {
-  background-image: linear-gradient(-46deg, rgba(0, 255, 239, 0.1) 0%, rgba(21, 255, 124, 0.12) 48%, rgba(45, 255, 0, 0.15) 100%); }
 
 #sidebar aside {
   border-radius: 10px;
@@ -73,15 +65,71 @@ ul, ol, p {
   #sidebar aside a {
     color: #0095dd; }
 
-#sidebar header #logo {
-  background-size: 124px 124px;
-  background: url(../images/dfa@2x.png) no-repeat center center;
-  display: none;
-  height: 150px; }
+#main-navigation ul {
+  list-style: none;
+  margin-top: 40px;
+  padding: 0; }
+
+#main-navigation a {
+  color: #c1c1c1;
+  display: block;
+  font-size: 14px;
+  padding: 10px 5px 10px 42px;
+  position: relative;
+  text-decoration: none;
+  transition: background-color 150ms; }
+  #main-navigation a:hover, #main-navigation a:focus {
+    background-color: #5e6972; }
+  #main-navigation a:before {
+    background: #c1c1c1;
+    border-bottom: 4px solid #c1c1c1;
+    border-radius: 2px;
+    border-top: 4px solid #fbfbfb;
+    content: '';
+    height: 18px;
+    left: 15px;
+    position: absolute;
+    top: 12px;
+    transition: border-radius 400ms;
+    width: 18px; }
+
+#main-navigation li.nav-active a {
+  background: #343f48;
+  box-shadow: 4px 0 0 #ff9500 inset;
+  color: #f2f2f2; }
+  #main-navigation li.nav-active a:before {
+    background: #f2f2f2;
+    border-radius: 50%; }
+
+.toc-break {
+  visibility: hidden;
+  display: block; }
+
+#main-footer {
+  background: url(../images/cham-wordmark@2x.png) 40px 25px no-repeat #31383d;
+  background-size: 280px 104px;
+  padding: 35px 0 45px 0;
+  position: relative;
+  width: 100%;
+  z-index: 999; }
+  #main-footer p {
+    color: #c1c1c1;
+    font-size: 12px;
+    line-height: 1.5em;
+    margin: 0 0 0 350px; }
+
+#sub-footer {
+  background: url(../images/moz-logo@2x.png) no-repeat 64px center #1c1e20;
+  background-size: 54px 14px;
+  height: 14px;
+  padding: 20px 0;
+  position: relative;
+  width: 100%;
+  z-index: 999; }
 
 .grid-group {
   clear: both;
-  margin: 0 0 50px 0; }
+  margin-bottom: 50px; }
 
 .grid-left {
   float: left;
@@ -171,72 +219,6 @@ ul, ol, p {
 .example-pre pre {
   margin: 0; }
 
-/*=====NAVIGATION=====*/
-#main-navigation ul {
-  list-style: none;
-  margin: 40px 0 0 0;
-  padding: 0; }
-
-#main-navigation a {
-  color: #CCCCCC;
-  display: block;
-  font-size: 14px;
-  padding: 10px 5px 10px 42px;
-  position: relative;
-  text-decoration: none;
-  transform: border-radius 2500ms;
-  transition: background-color 150ms; }
-  #main-navigation a:hover, #main-navigation a:focus {
-    background-color: #5e6972; }
-  #main-navigation a:before {
-    background: #c1c1c1;
-    border-bottom: 4px solid #c1c1c1;
-    border-radius: 3px;
-    border-top: 4px solid #fbfbfb;
-    content: '';
-    height: 18px;
-    left: 15px;
-    position: absolute;
-    top: 14px;
-    transition: border-radius 400ms;
-    width: 18px; }
-
-#main-navigation li.nav-active a {
-  background: rgba(0, 0, 0, 0.2);
-  border-left: 4px solid #ff9500;
-  color: #f2f2f2;
-  padding: 10px 5px 10px 38px; }
-  #main-navigation li.nav-active a:before {
-    background: #f2f2f2;
-    border-radius: 50%;
-    content: '';
-    height: 18px;
-    left: 11px;
-    position: absolute;
-    top: 14px;
-    width: 18px; }
-
-#main-footer {
-  background: url(../images/cham-wordmark@2x.png) 20px 38px no-repeat #31383d;
-  background-size: 280px 104px;
-  padding: 40px 0;
-  position: relative;
-  width: 100%;
-  z-index: 999; }
-  #main-footer p {
-    color: #c1c1c1;
-    line-height: 1.5em;
-    margin: 0 0 0 350px; }
-
-#sub-footer {
-  background-size: 54px 14px;
-  background: url(../images/moz-logo@2x.png) no-repeat 20px center #1c1e20;
-  height: 14px;
-  padding: 20px 0;
-  position: relative;
-  width: 100%;
-  z-index: 999; }
-
 /*=====Formatting Section=====*/
 #wrapper {
   margin: 0 0 100px 270px;
@@ -258,7 +240,7 @@ section > header > h2 {
   position: relative; }
   section > header > h2:before {
     background: #424f5a;
-    border-radius: 4px;
+    border-radius: 2px;
     border-top: 7px solid #343f48;
     content: '';
     height: 30px;
@@ -693,10 +675,10 @@ input.error {
   background: #343f48; }
 #wrapper .nav-group.dark.vertical a.active {
   background: #343f48;
-  box-shadow: inset 4px 0px 0px 0px #FF9500; }
+  box-shadow: inset 4px 0 0 0 #FF9500; }
 #wrapper .nav-group.dark.horizontal a.active {
   background: #343f48;
-  box-shadow: inset 0px -4px 0px 0px #FF9500; }
+  box-shadow: inset 0 -4px 0 0 #FF9500; }
 #wrapper .nav-group.light a {
   background-color: #fbfbfb;
   color: #424f5a; }
@@ -706,10 +688,10 @@ input.error {
   background: #dadada; }
 #wrapper .nav-group.light.vertical a.active {
   background: #ebebeb;
-  box-shadow: inset 4px 0px 0px 0px #ff9500; }
+  box-shadow: inset 4px 0 0 0 #ff9500; }
 #wrapper .nav-group.light.horizontal a.active {
   background: #ebebeb;
-  box-shadow: inset 0px -4px 0px 0px #ff9500; }
+  box-shadow: inset 0 -4px 0 0 #ff9500; }
 
 /*====COLOR STYLES=====*/
 .swatch {
@@ -724,7 +706,7 @@ input.error {
     text-align: center;
     font-size: 12px;
     font-weight: bold; }
-  .swatch div {
+  .swatch > div {
     height: 120px;
     width: 120px;
     margin: 0 auto 10px auto;
@@ -732,42 +714,69 @@ input.error {
     font-size: 10px;
     position: relative;
     text-align: center;
-    transition: background-color 250ms; }
-  .swatch:nth-child(1) div {
-    background-color: #fbfbfb;
+    overflow: hidden;
+    transition: background-position 250ms; }
+  .swatch .swatch-wrapper {
+    width: 120px;
+    height: 300px;
+    background: #faf;
+    overflow: hidden;
+    position: relative;
+    transition: top 200ms;
+    top: 0px; }
+    .swatch .swatch-wrapper:hover {
+      transition: top 200ms;
+      top: -40px; }
+  .swatch .swatch-main {
+    width: 120px;
+    height: 120px; }
+  .swatch .swatch-hover {
+    width: 120px;
+    height: 20px; }
+  .swatch .swatch-active {
+    width: 120px;
+    height: 20px; }
+  .swatch:nth-child(1) > div {
     border: 1px solid #c1c1c1;
     cursor: pointer; }
-    .swatch:nth-child(1) div:hover, .swatch:nth-child(1) div:focus {
-      background-color: #ebebeb; }
-    .swatch:nth-child(1) div:active {
-      background-color: #dadada; }
+    .swatch:nth-child(1) > div .swatch-main {
+      background-color: #fbfbfb; }
+    .swatch:nth-child(1) > div .swatch-hover {
+      background: #ebebeb; }
+    .swatch:nth-child(1) > div .swatch-active {
+      background: #dadada; }
   .swatch:nth-child(2) div {
     background-color: #f2f2f2; }
   .swatch:nth-child(3) div {
-    background-color: #424f5a;
     cursor: pointer; }
-    .swatch:nth-child(3) div:hover, .swatch:nth-child(3) div:focus {
-      background-color: #5e6972; }
-    .swatch:nth-child(3) div:active {
-      background-color: #343f48; }
+    .swatch:nth-child(3) div .swatch-main {
+      background-color: #424f5a; }
+    .swatch:nth-child(3) div .swatch-hover {
+      background: #5e6972; }
+    .swatch:nth-child(3) div .swatch-active {
+      background: #343f48; }
   .swatch:nth-child(4) div {
     background-color: #c1c1c1; }
   .swatch:nth-child(5) div {
     background-color: #333333; }
-  .swatch:nth-child(6) div {
-    background-color: #0095dd;
+  .swatch:nth-child(6) > div {
+    background-color: none;
     cursor: pointer; }
-    .swatch:nth-child(6) div:hover, .swatch:nth-child(6) div:focus {
-      background-color: #008acb; }
-    .swatch:nth-child(6) div:active {
-      background-color: #006b9d; }
-  .swatch:nth-child(7) div {
-    background-color: #74bf43;
+    .swatch:nth-child(6) > div .swatch-main {
+      background-color: #0095dd; }
+    .swatch:nth-child(6) > div .swatch-hover {
+      background: #008acb; }
+    .swatch:nth-child(6) > div .swatch-active {
+      background: #006b9d; }
+  .swatch:nth-child(7) > div {
+    background-color: none;
     cursor: pointer; }
-    .swatch:nth-child(7) div:hover, .swatch:nth-child(7) div:focus {
-      background-color: #6cb23e; }
-    .swatch:nth-child(7) div:active {
-      background-color: #64a43a; }
+    .swatch:nth-child(7) > div .swatch-main {
+      background-color: #74bf43; }
+    .swatch:nth-child(7) > div .swatch-hover {
+      background: #6cb23e; }
+    .swatch:nth-child(7) > div .swatch-active {
+      background: #64a43a; }
   .swatch:nth-child(8) div {
     background-color: #ff9500; }
   .swatch:nth-child(9) div {
@@ -914,7 +923,7 @@ div.type-sample {
     margin: 0; }
 
   #main-navigation a {
-    padding: 12px 0px 0 0;
+    padding: 12px 0 0 0;
     position: relative;
     height: 48px;
     overflow: hidden;
@@ -927,7 +936,7 @@ div.type-sample {
     #main-navigation a:before {
       background: #c1c1c1;
       border-bottom: 4px solid #c1c1c1;
-      border-radius: 3px;
+      border-radius: 2px;
       border-top: 4px solid #fbfbfb;
       content: '';
       height: 0;
@@ -940,8 +949,7 @@ div.type-sample {
   #main-navigation li.nav-active a {
     background: rgba(0, 0, 0, 0.2);
     height: 48px;
-    border-bottom: 4px solid #ff9500;
-    border-left: none;
+    box-shadow: 0 -4px 0 #ff9500 inset;
     color: #f2f2f2;
     padding: 12px 0 8px  0 !important; }
     #main-navigation li.nav-active a:before {

@@ -15,39 +15,37 @@ body {
 /*=====MINIMAL RESETS, ADJUSTMENTS, ETC =====*/
 
 h1,h2,h3,h4,h5,h6 {
-    font-family: $default-header-font;
     color: $dark-grey;
     clear: both;
 }
 
 h1,h2,h3 {
-    margin: 0 0 1em 0;
+    margin-bottom: 1em;
 }
 
 h4,h5,h6 {
-    margin: 0 0 1.66em 0;
+    margin-bottom: 1.66em;
 }
 
-h1, h2 {
+h1,h2 {
     font-family: 'fira_sanslight';
 }
 
-h1, h2, h3, h4, h5, h6 {
+h3,h4,h5,h6 {
     font-family: 'clear_sansregular';
 }
 
-ul, ol {
-    padding: 0 0 0 1em;
+ul,ol {
+    padding-left: 1em;
 }
 
 ul, ol, p {
     line-height: 24px;
     margin: 0 0 1.4em 0;
 }
-.toc-break {
-  visibility: hidden;
-  display: block;
-}
+
+//PAGE LAYOUT
+
 #about-mozilla {
     background-image: url('../images/moz-logo-light@2x.png');
     background-size: 69px 19px;
@@ -57,23 +55,21 @@ ul, ol, p {
     position: absolute;
     right: 12px;
     top: 12px;
-    transition: opacity 150ms ease 0s;
+    transition: opacity 150ms;
     width: 69px;
     &:hover {
         opacity: 1;
     }
 }
 
-#sidebar {
-    background: #424F5A;
-    height:100%;
-    position:fixed;
-    width:180px;
-    z-index: 999;
-}
+//SIDEBAR + NAVIGATION
 
-#sidebar header {
-    background-image: $chameleon-gradient;
+#sidebar {
+    background: $dark-grey;
+    height: 100%;
+    position: fixed;
+    width: 180px;
+    z-index: 999;
 }
 
 #sidebar aside {
@@ -90,16 +86,86 @@ ul, ol, p {
     }
 }
 
-#sidebar header #logo {
-    background-size: 124px 124px;
-    background: url(../images/dfa@2x.png) no-repeat center center;
-    display: none;
-    height:150px;
+#main-navigation ul {
+    list-style: none;
+    margin-top: 40px;
+    padding: 0;
 }
 
+#main-navigation a {
+    color: $text-light-grey;
+    display: block;
+    font-size: 14px;
+    padding: 10px 5px 10px 42px;
+    position: relative;
+    text-decoration: none;
+    transition: background-color 150ms;
+    &:hover, &:focus {
+        background-color: $hover-dark-grey;
+    }
+    &:before {
+        background: $text-light-grey;
+        border-bottom: 4px solid $text-light-grey;
+        border-radius: $default-border-radius;
+        border-top: 4px solid $light-grey;
+        content: '';
+        height: 18px;
+        left: 15px;
+        position: absolute;
+        top: 12px;
+        transition: border-radius 400ms;
+        width: 18px;
+    }
+}
+
+#main-navigation li.nav-active a {
+    background: $active-dark-grey;
+    box-shadow: 4px 0 0 $highlight-orange inset;
+    color: $body-background-grey;
+    &:before {
+        background: $body-background-grey;
+        border-radius: 50%;
+    }   
+}
+
+//toc break binds the table of contents to each section
+.toc-break {
+    visibility: hidden;
+    display: block;
+}
+
+// FOOTERS
+
+#main-footer {
+    background: url(../images/cham-wordmark@2x.png) 40px 25px no-repeat $footer-dark-grey;
+    background-size: 280px 104px;
+    padding: 35px 0 45px 0;
+    position: relative;
+    width: 100%;
+    z-index: 999;
+    p {
+        color: $text-light-grey;
+        font-size: 12px;
+        line-height: 1.5em;
+        margin: 0 0 0 350px;
+    }
+}
+
+#sub-footer {
+    background: url(../images/moz-logo@2x.png) no-repeat 64px center $footer-black; 
+    background-size: 54px 14px;
+    height: 14px;
+    padding: 20px 0;
+    position: relative;
+    width: 100%;
+    z-index: 999;
+}
+
+//MAIN WRAPPER
+
 .grid-group {
-    clear:both;
-    margin: 0 0 50px 0;
+    clear: both;
+    margin-bottom: 50px;
 }
 
 .grid-left {
@@ -109,7 +175,7 @@ ul, ol, p {
 }
 
 .grid-right {
-    float:left;
+    float: left;
     width: 280px;
 }
 
@@ -124,7 +190,7 @@ ul, ol, p {
     -ms-user-select: none;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
-    border-radius: 2px 2px 0 0;
+    border-radius: $default-border-radius $default-border-radius 0 0;
     border: 1px solid $text-light-grey;
     font-family: 'segoe_uiregular';
     padding: 50px 20px 20px 20px;
@@ -203,81 +269,6 @@ ul, ol, p {
     margin:0;
 }
 
-/*=====NAVIGATION=====*/
-
-#main-navigation ul {
-    list-style:none;
-    margin:40px 0 0 0;
-    padding:0;
-}
-
-#main-navigation a {
-    color: #CCCCCC;
-    display: block;
-    font-size: 14px;
-    padding: 10px 5px 10px 42px;
-    position: relative;
-    text-decoration: none;
-    transform: border-radius 2500ms;
-    transition: background-color 150ms;
-    &:hover, &:focus {
-        background-color: $hover-dark-grey;
-    }
-    &:before {
-        background: $text-light-grey;
-        border-bottom:4px solid $text-light-grey;
-        border-radius: 3px;
-        border-top: 4px solid $light-grey;
-        content:'';
-        height:18px;
-        left:15px;
-        position: absolute;
-        top:14px;
-        transition:border-radius 400ms;
-        width:18px;
-    }
-}
-
-#main-navigation li.nav-active a {
-    background: rgba(0,0,0,0.20);
-    border-left: 4px solid $highlight-orange;
-    color: #f2f2f2;
-    padding: 10px 5px 10px 38px;
-    &:before {
-        background: $body-background-grey;
-        border-radius: 50%;
-        content:'';
-        height:18px;
-        left:11px;
-        position: absolute;
-        top:14px;
-        width:18px;
-    }   
-}
-
-#main-footer {
-    background: url(../images/cham-wordmark@2x.png) 20px 38px no-repeat $footer-dark-grey;
-    background-size: 280px 104px;
-    padding:40px 0;
-    position: relative;
-    width:100%;
-    z-index:999;
-    p {
-        color: $text-light-grey;
-        line-height: 1.5em;
-        margin: 0 0 0 350px;
-    }
-}
-
-#sub-footer {
-    background-size: 54px 14px;
-    background: url(../images/moz-logo@2x.png) no-repeat 20px center $footer-black; 
-    height:14px;
-    padding:20px 0;
-    position: relative;
-    width:100%;
-    z-index:999;
-}
 
 /*=====Formatting Section=====*/
 
@@ -304,13 +295,13 @@ section>header>h2 {
     position: relative;
     &:before {
         background: $dark-grey;
-        border-radius: 4px;
+        border-radius: $default-border-radius;
         border-top:7px solid $active-dark-grey;
         content:'';
         height:30px;
         left:-50px;
         position: absolute;
-        top:12px;
+        top: 12px;
         width:30px;
     }
 }
@@ -440,7 +431,7 @@ section {
 }
 
 .button {
-    border-radius: 2px;
+    border-radius: $default-border-radius;
     &.primary {
         border:1px solid $text-light-grey;
         background-color: $light-grey;
@@ -477,7 +468,7 @@ section {
         border-left:none;
         padding:5px 10px;
         line-height: 1.4em;
-        border-radius: 0 2px 2px 0;
+        border-radius: 0 $default-border-radius $default-border-radius 0;
     }
 }
 
@@ -499,11 +490,11 @@ section {
             }
         }
         :first-child {
-            border-radius:2px 0 0 2px;
+            border-radius:$default-border-radius 0 0 $default-border-radius;
             border-left:1px solid $text-light-grey;
         }
         :last-child {
-            border-radius:0 2px 2px 0;
+            border-radius:0 $default-border-radius $default-border-radius 0;
         }
     }
 }
@@ -551,7 +542,7 @@ section {
         padding:3px;
         margin: 0;
         border:1px solid $text-light-grey;
-        border-radius: 2px;
+        border-radius: $default-border-radius;
         outline:none !important;
         display: inline-block;
         -webkit-appearance:none;
@@ -588,7 +579,7 @@ section {
         padding:3px;
         margin: 0;
         border-left:1px solid $text-light-grey;
-        border-radius: 0 2px 2px 0;
+        border-radius: 0 $default-border-radius $default-border-radius 0;
         border-right:none;
         border-top:none;
         border-bottom:none;
@@ -613,7 +604,7 @@ section {
         padding:3px;
         margin: 0;
         border:1px solid $text-light-grey;
-        border-radius: 2px;
+        border-radius: $default-border-radius;
         line-height:14px;
         outline:none !important;
         display: inline-block;
@@ -668,7 +659,7 @@ section {
 }
 
 input[type='text'] {
-    border-radius:2px;
+    border-radius: $default-border-radius;
     border: 1px solid $text-light-grey;
     padding:5px 10px;
     line-height:1.4em;
@@ -678,7 +669,7 @@ input[type='text'] {
 }
 
 input.button-input {
-    border-radius: 2px 0 0 2px;
+    border-radius: $default-border-radius 0 0 $default-border-radius;
 }
 
 input.error {
@@ -716,7 +707,7 @@ input.error {
             height:23px;
             content:'';
             border: 1px solid rgba(23,50,77,.40);
-            border-radius: 2px;
+            border-radius: $default-border-radius;
             background-color: #FFF;
         }
     }
@@ -893,13 +884,13 @@ input.error {
         &.vertical {
             a.active {
                 background: $active-dark-grey;
-                box-shadow: inset 4px 0px 0px 0px #FF9500;
+                box-shadow: inset 4px 0 0 0 #FF9500;
             }
         }
         &.horizontal {
             a.active {
                 background: $active-dark-grey;
-                box-shadow: inset 0px -4px 0px 0px #FF9500;
+                box-shadow: inset 0 -4px 0 0 #FF9500;
             }
         }      
     }
@@ -917,13 +908,13 @@ input.error {
         &.vertical {
             a.active {
                 background: $hover-light-grey;
-                box-shadow: inset 4px 0px 0px 0px $highlight-orange;
+                box-shadow: inset 4px 0 0 0 $highlight-orange;
             }
         }
         &.horizontal {
             a.active {
                 background: $hover-light-grey;
-                box-shadow: inset 0px -4px 0px 0px $highlight-orange;
+                box-shadow: inset 0 -4px 0 0 $highlight-orange;
             }
         } 
     }
@@ -944,7 +935,7 @@ input.error {
         font-size:12px;
         font-weight: bold;
     }
-    div {
+    > div {
         height:120px;
         width:120px;
         margin:0 auto 10px auto;
@@ -952,30 +943,62 @@ input.error {
         font-size:10px;
         position: relative;
         text-align: center;
-        transition: background-color 250ms;
+        overflow:hidden;
+        transition: background-position 250ms;
+
     }
-    &:nth-child(1) div {
-        background-color: $light-grey;
+    .swatch-wrapper {
+        width:120px;
+        height:300px;
+        background: #faf;
+        overflow:hidden;
+        position: relative;
+        transition: top 200ms;
+        top:0px;
+        &:hover {
+            transition: top 200ms;
+            top: -40px;
+        }
+    }
+    .swatch-main {
+        width:120px;
+        height:120px;
+    }
+    .swatch-hover {
+        width:120px;
+        height:20px;
+    }
+    .swatch-active {
+        width:120px;
+        height:20px;
+    }
+
+    &:nth-child(1)>div {
         border: 1px solid $text-light-grey;
         cursor: pointer;
-        &:hover, &:focus {
-            background-color: $hover-light-grey;
+        .swatch-main {
+            background-color: $light-grey;
         }
-        &:active {
-            background-color: $active-light-grey;
+        .swatch-hover {
+            background: $hover-light-grey;
+        }
+        .swatch-active {
+            background: $active-light-grey;
         }
     }
     &:nth-child(2) div {
         background-color: $body-background-grey;
     }
     &:nth-child(3) div {
-        background-color: $dark-grey;
         cursor: pointer;
-        &:hover, &:focus {
-            background-color: $hover-dark-grey;
+        .swatch-main {
+            background-color: $dark-grey;
         }
-        &:active {
-            background-color: $active-dark-grey;
+        .swatch-hover {
+            background: $hover-dark-grey;
+        }
+        .swatch-active {
+            background: $active-dark-grey;
         }
     }
     &:nth-child(4) div {
@@ -984,24 +1007,30 @@ input.error {
     &:nth-child(5) div {
         background-color: $text-dark-grey;
     }
-    &:nth-child(6) div {
-        background-color: $blue;
+    &:nth-child(6)>div {
+        background-color: none;
         cursor: pointer;
-        &:hover, &:focus {
-            background-color: $hover-blue;
+        .swatch-main {
+            background-color: $blue;
         }
-        &:active {
-            background-color: $active-blue;
+        .swatch-hover {
+            background: $hover-blue;
+        }
+        .swatch-active {
+            background: $active-blue;
         }
     }
-    &:nth-child(7) div {
-        background-color: $green;
+    &:nth-child(7)>div {
+        background-color: none;
         cursor: pointer;
-        &:hover, &:focus {
-            background-color: $hover-green;
+        .swatch-main {
+            background-color: $green;
         }
-        &:active {
-            background-color: $active-green;
+        .swatch-hover {
+            background: $hover-green;
+        }
+        .swatch-active {
+            background: $active-green;
         }
     }
     &:nth-child(8) div {
@@ -1199,7 +1228,7 @@ div.type-sample {
     }
 
     #main-navigation a {
-        padding: 12px 0px 0 0;
+        padding: 12px 0 0 0;
         position: relative;
         height:48px;
         overflow:hidden;
@@ -1213,7 +1242,7 @@ div.type-sample {
         &:before {
             background: $text-light-grey;
             border-bottom:4px solid $text-light-grey;
-            border-radius: 3px;
+            border-radius: $default-border-radius;
             border-top: 4px solid $light-grey;
             content:'';
             height:0;
@@ -1230,8 +1259,7 @@ div.type-sample {
     #main-navigation li.nav-active a {
         background: rgba(0,0,0,0.20);
         height:48px;
-        border-bottom: 4px solid $highlight-orange;
-        border-left:none;
+        box-shadow: 0 -4px 0 $highlight-orange inset;
         color: #f2f2f2;
         padding: 12px 0 8px  0 !important;
         &:before {

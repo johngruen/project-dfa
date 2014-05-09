@@ -44,7 +44,10 @@ ul, ol, p {
     line-height: 24px;
     margin: 0 0 1.4em 0;
 }
-
+.toc-break {
+  visibility: hidden;
+  display: block;
+}
 #about-mozilla {
     background-image: url('../images/moz-logo-light@2x.png');
     background-size: 69px 19px;
@@ -253,8 +256,8 @@ ul, ol, p {
 }
 
 #main-footer {
-    background-size: 280px 104px;
     background: url(../images/cham-wordmark@2x.png) 20px 38px no-repeat $footer-dark-grey;
+    background-size: 280px 104px;
     padding:40px 0;
     position: relative;
     width:100%;
@@ -282,6 +285,8 @@ ul, ol, p {
     margin: 0 0 100px 270px;
     padding: 0 0 0 0;
     width:610px;
+    position: relative;
+    z-index: 1;
 }
 
 section p {
@@ -291,11 +296,11 @@ section p {
     }
 }
 
-section h2 {
+section>header>h2 {
     font-size: 40px;
     font-weight: lighter;
     margin: 0;
-    padding: 20px 0 40px 0;
+    padding: 0 0 40px 0;
     position: relative;
     &:before {
         background: $dark-grey;
@@ -305,7 +310,7 @@ section h2 {
         height:30px;
         left:-50px;
         position: absolute;
-        top:31px;
+        top:12px;
         width:30px;
     }
 }
@@ -318,8 +323,8 @@ section h3 {
 
 section {
     border-bottom: 1px dashed #C1C1C1;
-    margin-bottom: 50px;
-    padding-bottom: 50px;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
 }
 
 
@@ -521,7 +526,7 @@ section {
         display:block;
         height:6px;
         width:20px;
-        z-index: 999;
+        z-index: 100;
         background: $light-grey;
         transition: background-color 50ms;
     }
@@ -698,7 +703,9 @@ input.error {
     input {
     }
     label {
+        padding: 10px 0;
         margin: 0 0 0 35px;
+        cursor: pointer;
         &:before {
             display: none;
             position: absolute;
@@ -717,10 +724,10 @@ input.error {
 
 .radio,.checkbox {
     input {
-        z-index:9999;
+        z-index:110;
         display: block;
         height:44px;
-        width:100%;
+        width:44px;
         top:-11px;
         position: absolute;
         left:-11px;
@@ -751,7 +758,7 @@ input.error {
         height:13px;
         background: #FFF;
         position: absolute;
-        z-index: 999;
+        z-index: 100;
         top:5px;
         left:5px;
         border-radius:50%;
@@ -764,7 +771,7 @@ input.error {
         height:11px;
         background: $blue;
         position: absolute;
-        z-index: 999;
+        z-index: 100;
         top:6px;
         left:6px;
         border-radius:50%;
@@ -785,7 +792,7 @@ input.error {
         height:15px;
         background: #FFF;
         position: absolute;
-        z-index: 999;
+        z-index: 100;
         top:4px;
         left:4px;
     }
@@ -798,7 +805,7 @@ input.error {
         background: url(../images/check.svg) no-repeat;
         background-size: 55px auto;
         position: absolute;
-        z-index: 999;
+        z-index: 100;
         top:6px;
         left:2px;
     }
@@ -1174,5 +1181,110 @@ div.type-sample {
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     select {padding-right:18px}
+}
+
+@media screen and (max-width:870px) {
+    #sidebar {
+        background: $dark-grey;
+        height:48px;
+        position:fixed;
+        width:100%;
+        z-index: 100;
+        aside {
+            display: none;
+        }
+    }
+    #main-navigation ul {
+        margin:0;
+    }
+
+    #main-navigation a {
+        padding: 12px 0px 0 0;
+        position: relative;
+        height:48px;
+        overflow:hidden;
+        width:12.5%;
+        float:left;
+        text-align: center;
+        font-size:13px;
+        &:hover, &:focus {
+            background-color: $hover-dark-grey;
+        }
+        &:before {
+            background: $text-light-grey;
+            border-bottom:4px solid $text-light-grey;
+            border-radius: 3px;
+            border-top: 4px solid $light-grey;
+            content:'';
+            height:0;
+            left:0;
+            position: absolute;
+            top:14px;
+            transition:border-radius 400ms;
+            width:0;
+        }
+    }
+
+
+
+    #main-navigation li.nav-active a {
+        background: rgba(0,0,0,0.20);
+        height:48px;
+        border-bottom: 4px solid $highlight-orange;
+        border-left:none;
+        color: #f2f2f2;
+        padding: 12px 0 8px  0 !important;
+        &:before {
+            background: $body-background-grey;
+            border-radius: 50%;
+            content:'';
+            height:0px;
+            left:11px;
+            position: absolute;
+            top:14px;
+            width:0px;
+        }   
+    }
+
+    #main-navigation a[href='#nav1'] {
+        content:'forms' !important;
+    }
+
+    #wrapper {
+        margin:0 auto;
+        padding:80px 0;
+    }
+
+    section>header>h2 {
+        margin:0 0 0 50px;
+    }
+
+    .toc-break {
+        height:40px;
+    }
+
+    #main-footer {
+        display: none;
+    }
+
+
+}
+@media screen and (max-width:610px) {
+    #sidebar {
+        background: $dark-grey;
+        height:48px;
+        position:relative;
+        width:100%;
+        z-index: 999;
+        aside {
+        display: none;
+        }
+    }
+
+
+    #wrapper {
+        width:96%;
+        margin:0 auto;
+    }
 }
 

@@ -1,13 +1,13 @@
 # Project Chameleon
 
-Common UI, and Graphic components for Firefox Desktop, Android and More. 
+Common UI, and Graphic components for Firefox Desktop, Android and more. 
 
 ## WORK IN PROGRESS
 
 All components of Chameleon are currently WIP. This includes the overall site build process. The following instructions are correct as of 5/9/14
 
 
-## DEPENDENCIES
+## Prerequisites
 
 Node, Bower, Grunt
 

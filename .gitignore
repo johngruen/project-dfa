@@ -1,1 +1,44 @@
+# Created by http://gitignore.io
+
+### Node ###
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+npm-debug.log
+node_modules
+
+### Bower ###
+app/bower_components
+
+
+### Linux ###
+.*
+!.gitignore
+!.git*
+!.bowerrc
+!.editorconfig
+!.jshintrc
+!.npmignore
+!.travis.yml
+!.awsbox.json
+*~
+
+
+### SASS ###
+### SASS Ignores - "Sassy CSS" http://sass-lang.com/
+*.sass-cache
+
+
 dist
+test/temp
+

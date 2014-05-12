@@ -2,6 +2,8 @@
 
 Common UI, and Graphic components for Firefox Desktop, Android and more. 
 
+Project lives at: http://people.mozilla.org/~jgruen/chameleon/
+
 ## WORK IN PROGRESS
 
 All components of Chameleon are currently WIP. This includes the overall site build process. The following instructions are correct as of 5/9/14

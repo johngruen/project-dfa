@@ -17,9 +17,6 @@ Node, Bower, Grunt
 
 Clone or Download the repo to get started
 
-
-### Installation
-
 - `cd` into the Project-DFA repo
 - `npm install`
 - `bower install`
